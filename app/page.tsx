@@ -17,11 +17,11 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Top gradient bar - like reference image */}
-        <div className="absolute top-0 left-0 right-0 h-[300px] bg-gradient-to-r from-purple-900/20 via-cyan-900/20 to-teal-900/20 blur-3xl"></div>
+        {/* Top gradient bar - subtle accent at top only */}
+        <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-r from-purple-900/15 via-cyan-900/15 to-teal-900/15 blur-2xl"></div>
 
-        {/* Subtle gradient orb in center */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-purple-600/10 via-cyan-600/10 to-transparent rounded-full blur-3xl"></div>
+        {/* Very subtle gradient accent in center */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-br from-purple-900/6 via-cyan-900/6 to-transparent rounded-full blur-3xl"></div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 py-20">
           <div className="text-center space-y-8">
