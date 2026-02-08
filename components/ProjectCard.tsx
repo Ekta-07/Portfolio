@@ -9,7 +9,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group relative bg-[#0f0f0f] rounded-lg overflow-hidden border border-[#262626] hover:border-[#404040] transition-all duration-300">
+        <div className="group relative bg-[#0f0f0f] rounded-lg overflow-hidden border border-[#262626] hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
             {/* Status Badge */}
             {project.status && (
                 <div className="absolute top-4 right-4 z-10">

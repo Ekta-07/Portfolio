@@ -12,13 +12,18 @@ export default function Home() {
   const artPieces = getArt().slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#e5e5e5]">
+    <div className="min-h-screen text-[#e5e5e5]">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative">
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Top gradient bar - like reference image */}
+        <div className="absolute top-0 left-0 right-0 h-[300px] bg-gradient-to-r from-purple-900/20 via-cyan-900/20 to-teal-900/20 blur-3xl"></div>
 
-        <div className="max-w-4xl mx-auto px-6 py-20">
+        {/* Subtle gradient orb in center */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-purple-600/10 via-cyan-600/10 to-transparent rounded-full blur-3xl"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 py-20">
           <div className="text-center space-y-8">
             {/* Name */}
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">Hi, I'm Shalmoly</h1>
