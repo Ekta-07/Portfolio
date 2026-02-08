@@ -1,0 +1,202 @@
+{
+    "personal": {
+        "name": "Shalmoly",
+        "title": "Data Engineer",
+        "bio": "Welcome to my digital sanctuary. I'm Shalmoly — a data engineer, former researcher, and creative soul. This is where I share my work, art, and thoughts.",
+        "email": "shalmoly@example.com",
+        "location": "San Francisco, CA",
+        "social": {
+            "github": "https://github.com/shalmoly",
+            "linkedin": "https://linkedin.com/in/shalmoly",
+            "twitter": "https://twitter.com/shalmoly",
+            "medium": "https://medium.com/@shalmoly"
+        }
+    },
+    "about": {
+        "intro": "I'm Shalmoly, a Data Engineer building scalable data pipelines and analytics platforms.",
+        "description": "I'm currently working on building robust data infrastructure and real-time analytics systems. I have a passion for transforming raw data into actionable insights and building systems that scale. Always had a thing for open-source, I contribute to various data engineering projects.",
+        "currentlyWorkingOn": [
+            {
+                "title": "Real-time Analytics Platform",
+                "description": "Building a scalable real-time data processing system using Apache Kafka and Spark"
+            },
+            {
+                "title": "Data Pipeline Orchestration",
+                "description": "Designing and implementing ETL pipelines with Airflow and dbt"
+            }
+        ]
+    },
+    "projects": [
+        {
+            "id": "1",
+            "title": "Payment Processing (UI)",
+            "category": "Full Stack",
+            "description": "An implementation of Payment Processing UI using modern design principles with real-time transaction tracking.",
+            "technologies": [
+                "TypeScript",
+                "Next.js",
+                "Vercel",
+                "None"
+            ],
+            "status": "Live",
+            "progress": 95,
+            "image": "/projects/payment-processing.jpg",
+            "liveUrl": "https://payment-processing.vercel.app/",
+            "githubUrl": "https://github.com/shalmoly/payment-processing",
+            "featured": true
+        },
+        {
+            "id": "2",
+            "title": "Pictures AI",
+            "category": "Core",
+            "description": "A platform to generate AI based images using LLMs from Cloudflare AI workers with advanced customization options.",
+            "technologies": [
+                "TypeScript",
+                "Next + Hono",
+                "None",
+                "Vercel"
+            ],
+            "status": "Live",
+            "progress": 95,
+            "image": "/projects/pictures-ai.jpg",
+            "githubUrl": "https://github.com/shalmoly/pictures-ai",
+            "featured": true
+        },
+        {
+            "id": "3",
+            "title": "Data Pipeline Orchestrator",
+            "category": "Core",
+            "description": "ETL pipeline orchestration system for processing large-scale datasets with automated monitoring and alerting.",
+            "technologies": [
+                "Python",
+                "Apache Airflow",
+                "PostgreSQL",
+                "AWS"
+            ],
+            "status": "In Progress",
+            "progress": 75,
+            "image": "/projects/data-pipeline.jpg",
+            "githubUrl": "https://github.com/shalmoly/data-orchestrator",
+            "featured": false
+        },
+        {
+            "id": "4",
+            "title": "Analytics Dashboard",
+            "category": "Full Stack",
+            "description": "Real-time analytics dashboard for monitoring business metrics with interactive visualizations.",
+            "technologies": [
+                "TypeScript",
+                "React",
+                "MongoDB",
+                "Express.js"
+            ],
+            "status": "Completed",
+            "progress": 100,
+            "image": "/projects/analytics-dashboard.jpg",
+            "liveUrl": "https://analytics-dashboard.vercel.app/",
+            "githubUrl": "https://github.com/shalmoly/analytics-dashboard",
+            "featured": false
+        }
+    ],
+    "art": [
+        {
+            "id": "1",
+            "title": "Abstract Data Flow",
+            "description": "Digital art representing the flow of data through pipelines",
+            "image": "/art/data-flow.jpg",
+            "category": "Digital Art",
+            "date": "2024-01-15"
+        },
+        {
+            "id": "2",
+            "title": "Neural Networks",
+            "description": "Visualization of neural network architecture",
+            "image": "/art/neural-networks.jpg",
+            "category": "Generative Art",
+            "date": "2024-02-20"
+        },
+        {
+            "id": "3",
+            "title": "Code Poetry",
+            "description": "Artistic interpretation of beautiful code structures",
+            "image": "/art/code-poetry.jpg",
+            "category": "Digital Art",
+            "date": "2024-03-10"
+        }
+    ],
+    "blogs": [
+        {
+            "id": "1",
+            "title": "The World of Data Engineering",
+            "category": "Core",
+            "excerpt": "An introduction to modern data engineering practices and tools that power today's data-driven applications.",
+            "date": "2024-03-18",
+            "readTime": "8 min read",
+            "url": "https://shalmoly.medium.com/data-engineering-intro",
+            "featured": true
+        },
+        {
+            "id": "2",
+            "title": "Building Scalable Data Pipelines",
+            "category": "Engineering",
+            "excerpt": "Best practices for designing and implementing data pipelines that scale with your business needs.",
+            "date": "2024-05-13",
+            "readTime": "12 min read",
+            "url": "https://shalmoly.medium.com/scalable-data-pipelines",
+            "featured": true
+        },
+        {
+            "id": "3",
+            "title": "Real-time Analytics: A Deep Dive",
+            "category": "Analytics",
+            "excerpt": "Exploring the architecture and implementation of real-time analytics systems using modern streaming technologies.",
+            "date": "2024-11-15",
+            "readTime": "15 min read",
+            "url": "https://shalmoly.medium.com/realtime-analytics",
+            "featured": false
+        }
+    ],
+    "skills": {
+        "languages": [
+            "Python",
+            "SQL",
+            "TypeScript",
+            "Scala",
+            "Java"
+        ],
+        "dataEngineering": [
+            "Apache Spark",
+            "Apache Kafka",
+            "Airflow",
+            "dbt",
+            "Snowflake"
+        ],
+        "databases": [
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "Cassandra",
+            "BigQuery"
+        ],
+        "cloud": [
+            "AWS",
+            "GCP",
+            "Azure",
+            "Docker",
+            "Kubernetes"
+        ],
+        "frontend": [
+            "React",
+            "Next.js",
+            "TailwindCSS",
+            "TypeScript"
+        ],
+        "tools": [
+            "Git",
+            "Terraform",
+            "Jenkins",
+            "Grafana",
+            "Datadog"
+        ]
+    }
+}
