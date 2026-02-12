@@ -64,6 +64,31 @@ export interface Blog {
     featured: boolean;
 }
 
+export interface Publication {
+    id: string;
+    title: string;
+    venue: string;
+    year: string;
+    authors: string;
+    url: string;
+    type: string;
+}
+
+export interface Thesis {
+    title: string;
+    url: string;
+    abstract: string;
+}
+
+export interface Research {
+    degree: string;
+    university: string;
+    years: string;
+    area: string;
+    thesis: Thesis;
+    publications: Publication[];
+}
+
 export interface Skills {
     languages: string[];
     dataEngineering: string[];
@@ -76,6 +101,7 @@ export interface Skills {
 export interface PortfolioData {
     personal: Personal;
     about: About;
+    research: Research;
     projects: Project[];
     art: Art[];
     blogs: Blog[];
@@ -124,6 +150,10 @@ export function getFeaturedBlogs(): Blog[] {
 
 export function getSkills(): Skills {
     return getPortfolioData().skills;
+}
+
+export function getResearch(): Research {
+    return getPortfolioData().research;
 }
 
 // CRUD operations for admin

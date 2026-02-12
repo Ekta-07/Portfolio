@@ -26,6 +26,46 @@
             }
         ]
     },
+    "research": {
+        "degree": "Ph.D. in Computer Science",
+        "university": "Stanford University",
+        "years": "2018 – 2023",
+        "area": "Scalable Data Systems & Stream Processing",
+        "thesis": {
+            "title": "Adaptive Stream Processing Architectures for Large-Scale Real-Time Analytics",
+            "url": "https://purl.stanford.edu/example-thesis",
+            "abstract": "This thesis presents novel architectures for adaptive stream processing systems that dynamically optimize resource allocation, query execution, and fault tolerance in large-scale real-time analytics environments."
+        },
+        "publications": [
+            {
+                "id": "1",
+                "title": "Adaptive Query Optimization for Distributed Stream Processing",
+                "venue": "SIGMOD 2023",
+                "year": "2023",
+                "authors": "Shalmoly, J. Smith, A. Kumar",
+                "url": "https://doi.org/10.1145/example-sigmod",
+                "type": "Conference"
+            },
+            {
+                "id": "2",
+                "title": "Fault-Tolerant State Management in Real-Time Data Pipelines",
+                "venue": "VLDB 2022",
+                "year": "2022",
+                "authors": "Shalmoly, R. Patel",
+                "url": "https://doi.org/10.14778/example-vldb",
+                "type": "Conference"
+            },
+            {
+                "id": "3",
+                "title": "A Survey of Modern Data Pipeline Orchestration Frameworks",
+                "venue": "ACM Computing Surveys",
+                "year": "2021",
+                "authors": "Shalmoly, J. Smith",
+                "url": "https://doi.org/10.1145/example-csur",
+                "type": "Journal"
+            }
+        ]
+    },
     "projects": [
         {
             "id": "1",
@@ -77,7 +117,7 @@
             "progress": 75,
             "image": "/projects/data-pipeline.jpg",
             "githubUrl": "https://github.com/shalmoly/data-orchestrator",
-            "featured": false
+            "featured": true
         },
         {
             "id": "4",

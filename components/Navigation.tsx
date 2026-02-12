@@ -26,13 +26,15 @@ export default function Navigation() {
     }, []);
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md border-b border-[#262626]' : 'bg-transparent'
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0B0C14]/80 backdrop-blur-md border-b border-[#727DA1]/15' : 'bg-transparent'
             }`}>
             <div className="max-w-6xl mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="text-lg font-semibold text-white hover:text-[#737373] transition-colors">
-                        Shalmoly
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <span className="w-8 h-8 rounded-full border border-[#6366F1]/50 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_14px_rgba(99,102,241,0.45),0_0_4px_rgba(99,102,241,0.6)] group-hover:border-[#818CF8] group-hover:shadow-[0_0_24px_rgba(99,102,241,0.7),0_0_6px_rgba(129,140,248,0.8)] transition-all duration-300">
+                            S
+                        </span>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -41,7 +43,7 @@ export default function Navigation() {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="text-sm text-[#737373] hover:text-white transition-colors"
+                                className="text-sm text-[#C9D3EE] hover:text-white transition-colors"
                             >
                                 {item.name}
                             </Link>
@@ -74,13 +76,13 @@ export default function Navigation() {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden mt-4 pb-4 border-t border-[#262626] pt-4">
+                    <div className="md:hidden mt-4 pb-4 border-t border-[#727DA1]/15 pt-4">
                         {navItems.slice(1).map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="block py-2 text-[#737373] hover:text-white transition-colors"
+                                className="block py-2 text-[#C9D3EE] hover:text-white transition-colors"
                             >
                                 {item.name}
                             </Link>
@@ -91,4 +93,3 @@ export default function Navigation() {
         </nav>
     );
 }
-
