@@ -31,8 +31,10 @@ export default function Navigation() {
             <div className="max-w-6xl mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="text-lg font-semibold text-white hover:text-[#C9D3EE] transition-colors">
-                        Shalmoly
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <span className="w-8 h-8 rounded-full border border-[#6366F1]/50 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_14px_rgba(99,102,241,0.45),0_0_4px_rgba(99,102,241,0.6)] group-hover:border-[#818CF8] group-hover:shadow-[0_0_24px_rgba(99,102,241,0.7),0_0_6px_rgba(129,140,248,0.8)] transition-all duration-300">
+                            S
+                        </span>
                     </Link>
 
                     {/* Desktop Navigation */}
