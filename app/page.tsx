@@ -13,17 +13,17 @@ export default function Home() {
   const artPieces = getArt().slice(0, 3);
 
   return (
-    <div className="min-h-screen text-[#e5e5e5]">
+    <div className="min-h-screen text-[#C9D3EE]">
       <Navigation />
 
       {/* Hero Section with Animated Background */}
       <BackgroundLines className="w-full">
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-          {/* Top gradient bar - subtle accent at top only */}
-          <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-r from-purple-900/15 via-cyan-900/15 to-teal-900/15 blur-2xl"></div>
+          {/* Top gradient bar - subtle accent */}
+          <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-r from-[#6366F1]/10 via-[#4F46E5]/8 to-[#6366F1]/10 blur-2xl"></div>
 
           {/* Very subtle gradient accent in center */}
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-br from-purple-900/6 via-cyan-900/6 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-br from-[#6366F1]/6 via-[#4F46E5]/4 to-transparent rounded-full blur-3xl"></div>
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 py-20">
             <div className="text-center space-y-8">
@@ -31,7 +31,7 @@ export default function Home() {
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">Hi, I'm Shalmoly</h1>
 
               {/* Typed Text */}
-              <div className="text-xl md:text-2xl text-[#737373] min-h-[2rem]">
+              <div className="text-xl md:text-2xl text-[#939DB8] min-h-[2rem]">
                 I'm a{' '}
                 <span className="text-white font-medium">
                   <TypedText
@@ -41,7 +41,7 @@ export default function Home() {
               </div>
 
               {/* Bio */}
-              <p className="text-base md:text-lg text-[#737373] max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg text-[#939DB8] max-w-2xl mx-auto leading-relaxed">
                 {personal.bio}
               </p>
 
@@ -51,7 +51,7 @@ export default function Home() {
                   href={`https://github.com/${personal.social.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 bg-[#1a1a1a] hover:bg-[#262626] rounded-full transition-colors border border-[#262626]"
+                  className="p-2.5 bg-[#171926] hover:bg-[#1E2133] rounded-full transition-colors border border-[#727DA1]/20"
                   aria-label="GitHub"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -62,7 +62,7 @@ export default function Home() {
                   href={`https://linkedin.com/in/${personal.social.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 bg-[#1a1a1a] hover:bg-[#262626] rounded-full transition-colors border border-[#262626]"
+                  className="p-2.5 bg-[#171926] hover:bg-[#1E2133] rounded-full transition-colors border border-[#727DA1]/20"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -73,7 +73,7 @@ export default function Home() {
                   href={`https://twitter.com/${personal.social.twitter}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 bg-[#1a1a1a] hover:bg-[#262626] rounded-full transition-colors border border-[#262626]"
+                  className="p-2.5 bg-[#171926] hover:bg-[#1E2133] rounded-full transition-colors border border-[#727DA1]/20"
                   aria-label="Twitter"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ export default function Home() {
                   href={`https://medium.com/@${personal.social.medium}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 bg-[#1a1a1a] hover:bg-[#262626] rounded-full transition-colors border border-[#262626]"
+                  className="p-2.5 bg-[#171926] hover:bg-[#1E2133] rounded-full transition-colors border border-[#727DA1]/20"
                   aria-label="Medium"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -97,13 +97,13 @@ export default function Home() {
               <div className="flex flex-wrap gap-3 justify-center">
                 <Link
                   href="/contact"
-                  className="px-6 py-2.5 bg-white text-black hover:bg-[#e5e5e5] rounded-full font-medium transition-all text-sm"
+                  className="px-6 py-2.5 bg-gradient-to-r from-[#6366F1] to-[#4F46E5] text-white hover:from-[#818CF8] hover:to-[#6366F1] rounded-lg font-medium transition-all text-sm shadow-lg shadow-[#6366F1]/25"
                 >
                   Contact me here →
                 </Link>
                 <Link
                   href="/work"
-                  className="px-6 py-2.5 bg-[#1a1a1a] hover:bg-[#262626] rounded-full font-medium transition-all text-sm border border-[#262626]"
+                  className="px-6 py-2.5 bg-[#171926] hover:bg-[#1E2133] rounded-lg font-medium transition-all text-sm border border-[#727DA1]/20 text-[#C9D3EE]"
                 >
                   View My Work
                 </Link>
@@ -111,7 +111,7 @@ export default function Home() {
 
               {/* Scroll Indicator */}
               <div className="mt-20 animate-bounce">
-                <svg className="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 mx-auto text-[#939DB8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
@@ -121,11 +121,11 @@ export default function Home() {
       </BackgroundLines>
 
       {/* Featured Projects Section */}
-      <section className="py-24 border-t border-[#262626]">
+      <section className="py-24 border-t border-[#727DA1]/15">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-white mb-2">Featured Work</h2>
-            <p className="text-[#737373]">Selected projects</p>
+            <p className="text-[#939DB8]">Selected projects</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -137,7 +137,7 @@ export default function Home() {
           <div className="mt-12">
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 text-[#e5e5e5] hover:text-white font-medium text-sm"
+              className="inline-flex items-center gap-2 text-[#C9D3EE] hover:text-white font-medium text-sm"
             >
               View All Projects
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,11 +149,11 @@ export default function Home() {
       </section>
 
       {/* Latest Writings & Art Section */}
-      <section className="py-24 border-t border-[#262626]">
+      <section className="py-24 border-t border-[#727DA1]/15">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-white mb-2">Latest Writings & Art</h2>
-            <p className="text-[#737373]">Thoughts and creative expressions</p>
+            <p className="text-[#939DB8]">Thoughts and creative expressions</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -167,18 +167,18 @@ export default function Home() {
                     href={blog.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-5 bg-[#0f0f0f] rounded-lg hover:bg-[#1a1a1a] transition-colors border border-[#262626] hover:border-[#404040]"
+                    className="block p-5 bg-[#171926] rounded-lg hover:bg-[#1E2133] transition-colors border border-[#727DA1]/15 hover:border-[#6366F1]/30"
                   >
-                    <div className="text-xs text-[#737373] mb-2">{blog.category} · {blog.date}</div>
-                    <h4 className="text-base font-semibold text-white mb-2 hover:text-[#e5e5e5] transition-colors">{blog.title}</h4>
-                    <p className="text-[#737373] text-sm mb-2 line-clamp-2">{blog.excerpt}</p>
-                    <div className="text-xs text-[#737373]">{blog.readTime}</div>
+                    <div className="text-xs text-[#939DB8] mb-2">{blog.category} · {blog.date}</div>
+                    <h4 className="text-base font-semibold text-white mb-2 hover:text-[#C9D3EE] transition-colors">{blog.title}</h4>
+                    <p className="text-[#939DB8] text-sm mb-2 line-clamp-2">{blog.excerpt}</p>
+                    <div className="text-xs text-[#939DB8]">{blog.readTime}</div>
                   </a>
                 ))}
               </div>
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 text-[#e5e5e5] hover:text-white font-medium mt-6 text-sm"
+                className="inline-flex items-center gap-2 text-[#C9D3EE] hover:text-white font-medium mt-6 text-sm"
               >
                 View All Posts
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,21 +194,21 @@ export default function Home() {
                 {artPieces.map((art) => (
                   <div
                     key={art.id}
-                    className="group relative overflow-hidden rounded-lg bg-[#0f0f0f] border border-[#262626] hover:border-[#404040] transition-all"
+                    className="group relative overflow-hidden rounded-lg bg-[#171926] border border-[#727DA1]/15 hover:border-[#6366F1]/30 transition-all"
                   >
-                    <div className="aspect-video bg-[#1a1a1a] flex items-center justify-center">
+                    <div className="aspect-video bg-[#1E2133] flex items-center justify-center">
                       <span className="text-3xl opacity-50">🎨</span>
                     </div>
                     <div className="p-4">
                       <h4 className="font-semibold text-white mb-1 text-sm">{art.title}</h4>
-                      <p className="text-xs text-[#737373]">{art.description}</p>
+                      <p className="text-xs text-[#939DB8]">{art.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <Link
                 href="/art"
-                className="inline-flex items-center gap-2 text-[#e5e5e5] hover:text-white font-medium mt-6 text-sm"
+                className="inline-flex items-center gap-2 text-[#C9D3EE] hover:text-white font-medium mt-6 text-sm"
               >
                 View All Art
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -221,26 +221,26 @@ export default function Home() {
       </section>
 
       {/* Currently Working On */}
-      <section className="py-20 bg-black/20">
+      <section className="py-20 bg-[#0E0F1A]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Currently Working On</h2>
+            <h2 className="text-4xl font-bold mb-4 text-white">Currently Working On</h2>
           </div>
 
-          <div className="bg-gray-900/40 backdrop-blur-sm border border-gray-700/50 rounded-xl p-8">
+          <div className="bg-[#171926] backdrop-blur-sm border border-[#727DA1]/15 rounded-xl p-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 animate-pulse"></div>
+                <div className="w-2 h-2 bg-[#6366F1] rounded-full mt-2 animate-pulse"></div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Real-time Analytics Platform</h3>
-                  <p className="text-gray-400">Building a scalable real-time data processing system using Apache Kafka and Spark</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">Real-time Analytics Platform</h3>
+                  <p className="text-[#939DB8]">Building a scalable real-time data processing system using Apache Kafka and Spark</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 animate-pulse"></div>
+                <div className="w-2 h-2 bg-[#6366F1] rounded-full mt-2 animate-pulse"></div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Data Pipeline Orchestration</h3>
-                  <p className="text-gray-400">Designing and implementing ETL pipelines with Airflow and dbt</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">Data Pipeline Orchestration</h3>
+                  <p className="text-[#939DB8]">Designing and implementing ETL pipelines with Airflow and dbt</p>
                 </div>
               </div>
             </div>

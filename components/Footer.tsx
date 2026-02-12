@@ -4,13 +4,13 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-black border-t border-gray-800 py-12">
+        <footer className="bg-[#0B0C14] border-t border-[#727DA1]/15 py-12">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                     {/* About */}
                     <div>
                         <h3 className="text-white font-bold text-lg mb-4">Shalmoly</h3>
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-[#939DB8] text-sm">
                             Data Engineer passionate about building scalable data pipelines and creating beautiful digital experiences.
                         </p>
                     </div>
@@ -19,16 +19,16 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-bold text-lg mb-4">Quick Links</h3>
                         <div className="flex flex-col gap-2">
-                            <Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                            <Link href="/about" className="text-[#939DB8] hover:text-white transition-colors text-sm">
                                 About
                             </Link>
-                            <Link href="/work" className="text-gray-400 hover:text-white transition-colors text-sm">
+                            <Link href="/work" className="text-[#939DB8] hover:text-white transition-colors text-sm">
                                 Work
                             </Link>
-                            <Link href="/art" className="text-gray-400 hover:text-white transition-colors text-sm">
+                            <Link href="/art" className="text-[#939DB8] hover:text-white transition-colors text-sm">
                                 Art
                             </Link>
-                            <Link href="/blog" className="text-gray-400 hover:text-white transition-colors text-sm">
+                            <Link href="/blog" className="text-[#939DB8] hover:text-white transition-colors text-sm">
                                 Blog
                             </Link>
                         </div>
@@ -42,7 +42,7 @@ export default function Footer() {
                                 href="https://github.com/shalmoly"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-white transition-colors"
+                                className="text-[#939DB8] hover:text-white transition-colors"
                                 aria-label="GitHub"
                             >
                                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ export default function Footer() {
                                 href="https://linkedin.com/in/shalmoly"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-white transition-colors"
+                                className="text-[#939DB8] hover:text-white transition-colors"
                                 aria-label="LinkedIn"
                             >
                                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ export default function Footer() {
                                 href="https://twitter.com/shalmoly"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-white transition-colors"
+                                className="text-[#939DB8] hover:text-white transition-colors"
                                 aria-label="Twitter"
                             >
                                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export default function Footer() {
                                 href="https://medium.com/@shalmoly"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-white transition-colors"
+                                className="text-[#939DB8] hover:text-white transition-colors"
                                 aria-label="Medium"
                             >
                                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -87,8 +87,8 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom */}
-                <div className="pt-8 border-t border-gray-800 text-center">
-                    <p className="text-gray-500 text-sm">
+                <div className="pt-8 border-t border-[#727DA1]/15 text-center">
+                    <p className="text-[#939DB8] text-sm">
                         © {currentYear} Shalmoly. All rights reserved.
                     </p>
                 </div>
