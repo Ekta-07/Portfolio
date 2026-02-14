@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import AnimatedSkillsOrb from '@/components/AnimatedSkillsOrb';
 import { getAbout, getPersonalInfo, getSkills } from '@/lib/data';
 
 export default function AboutPage() {
@@ -130,20 +131,13 @@ export default function AboutPage() {
                                 { title: 'Cloud & DevOps', items: skills.cloud },
                                 { title: 'Frontend', items: skills.frontend },
                                 { title: 'Tools', items: skills.tools },
-                            ].map((group) => (
-                                <div key={group.title} className="bg-[#171926] border border-[#727DA1]/10 rounded-xl p-5">
-                                    <h3 className="text-sm font-semibold text-[#6366F1] mb-3">{group.title}</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {group.items.map((skill, index) => (
-                                            <span
-                                                key={index}
-                                                className="px-3 py-1 bg-[#0B0C14] text-[#C9D3EE] text-xs rounded-full border border-[#727DA1]/10"
-                                            >
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
+                            ].map((group, index) => (
+                                <AnimatedSkillsOrb
+                                    key={group.title}
+                                    title={group.title}
+                                    skills={group.items}
+                                    delay={index * 0.1}
+                                />
                             ))}
                         </div>
                     </section>
