@@ -2,6 +2,8 @@
 
 import { Project } from '@/lib/data';
 import Link from 'next/link';
+import SpotlightCard from './SpotlightCard';
+import Card3DTilt from './Card3DTilt';
 
 interface ProjectCardProps {
     project: Project;
@@ -9,7 +11,8 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <div className="group relative bg-[#171926] rounded-lg overflow-hidden border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#6366F1]/10">
+        <Card3DTilt tiltDegree={8} scale={1.03}>
+            <SpotlightCard className="group relative bg-[#171926] rounded-lg overflow-hidden border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#6366F1]/10">
             {/* Status Badge */}
             {project.status && (
                 <div className="absolute top-4 right-4 z-10">
@@ -107,6 +110,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     )}
                 </div>
             </div>
-        </div>
+        </SpotlightCard>
+        </Card3DTilt>
     );
 }
