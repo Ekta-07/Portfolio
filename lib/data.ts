@@ -41,6 +41,7 @@ export interface Project {
     image: string;
     liveUrl?: string;
     githubUrl?: string;
+    pdfUrl?: string;
     featured: boolean;
 }
 
@@ -77,14 +78,10 @@ export interface Publication {
 export interface Thesis {
     title: string;
     url: string;
-    abstract: string;
 }
 
 export interface Research {
-    degree: string;
-    university: string;
-    years: string;
-    area: string;
+    description: string;
     thesis: Thesis;
     publications: Publication[];
 }

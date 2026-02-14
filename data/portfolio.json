@@ -27,115 +27,84 @@
         ]
     },
     "research": {
-        "degree": "Ph.D. in Computer Science",
-        "university": "Stanford University",
-        "years": "2018 – 2023",
-        "area": "Scalable Data Systems & Stream Processing",
+        "description": "My research comprised of various projects in transportation and manufacturing domain which involved analyzing large, complex sensor data sets to uncover meaningful patterns. I also explored the application of machine learning models for object detection, to better understand and improve real-world processes.",
         "thesis": {
-            "title": "Adaptive Stream Processing Architectures for Large-Scale Real-Time Analytics",
-            "url": "https://purl.stanford.edu/example-thesis",
-            "abstract": "This thesis presents novel architectures for adaptive stream processing systems that dynamically optimize resource allocation, query execution, and fault tolerance in large-scale real-time analytics environments."
+            "title": "Doctoral Thesis",
+            "url": "https://1drv.ms/b/c/ee37ff24155ee034/IQCKI6DQBIRoR74dkjcQalXwAYUEwoGsBi-G9ievMWnvCS8?e=535dFD"
         },
         "publications": [
             {
                 "id": "1",
-                "title": "Adaptive Query Optimization for Distributed Stream Processing",
-                "venue": "SIGMOD 2023",
+                "title": "SA-IoTDG: IoT Application Data Simulation",
+                "venue": "MDPI Sensors",
                 "year": "2023",
-                "authors": "Shalmoly, J. Smith, A. Kumar",
-                "url": "https://doi.org/10.1145/example-sigmod",
-                "type": "Conference"
+                "authors": "Shalmoly Mondal et al.",
+                "url": "https://www.mdpi.com/1424-8220/23/1/7",
+                "type": "Journal"
             },
             {
                 "id": "2",
-                "title": "Fault-Tolerant State Management in Real-Time Data Pipelines",
-                "venue": "VLDB 2022",
-                "year": "2022",
-                "authors": "Shalmoly, R. Patel",
-                "url": "https://doi.org/10.14778/example-vldb",
+                "title": "Face Recognition in Various Lighting Conditions using PCA and DC",
+                "venue": "Research Publication",
+                "year": "2017",
+                "authors": "Shalmoly Mondal",
+                "url": "https://shalmolymondal.com/upload/doc/FaceRecognition_PCA_DC_2017.pdf",
                 "type": "Conference"
-            },
-            {
-                "id": "3",
-                "title": "A Survey of Modern Data Pipeline Orchestration Frameworks",
-                "venue": "ACM Computing Surveys",
-                "year": "2021",
-                "authors": "Shalmoly, J. Smith",
-                "url": "https://doi.org/10.1145/example-csur",
-                "type": "Journal"
             }
         ]
     },
     "projects": [
         {
             "id": "1",
-            "title": "Payment Processing (UI)",
-            "category": "Full Stack",
-            "description": "An implementation of Payment Processing UI using modern design principles with real-time transaction tracking.",
+            "title": "IoT Application Data Simulation",
+            "category": "Research / IoT",
+            "description": "SA-IoTDG — a simulation tool for generating realistic IoT application data for testing and development of IoT systems, with published research in MDPI Sensors.",
             "technologies": [
-                "TypeScript",
-                "Next.js",
-                "Vercel",
-                "None"
+                "Python",
+                "IoT",
+                "Data Simulation",
+                "Sensor Networks"
             ],
-            "status": "Live",
-            "progress": 95,
-            "image": "/projects/payment-processing.jpg",
-            "liveUrl": "https://payment-processing.vercel.app/",
-            "githubUrl": "https://github.com/shalmoly/payment-processing",
+            "status": "Published",
+            "progress": 100,
+            "image": "/projects/iot-simulation.jpg",
+            "githubUrl": "https://github.com/ShalmolyMondal/SA-IoTDG",
+            "pdfUrl": "https://www.mdpi.com/1424-8220/23/1/7",
             "featured": true
         },
         {
             "id": "2",
-            "title": "Pictures AI",
-            "category": "Core",
-            "description": "A platform to generate AI based images using LLMs from Cloudflare AI workers with advanced customization options.",
+            "title": "Face Recognition in Various Lighting",
+            "category": "Computer Vision",
+            "description": "Research on face recognition techniques using PCA and DC methods to improve accuracy across varying lighting conditions.",
             "technologies": [
-                "TypeScript",
-                "Next + Hono",
-                "None",
-                "Vercel"
+                "Python",
+                "OpenCV",
+                "PCA",
+                "Machine Learning"
             ],
-            "status": "Live",
-            "progress": 95,
-            "image": "/projects/pictures-ai.jpg",
-            "githubUrl": "https://github.com/shalmoly/pictures-ai",
+            "status": "Published",
+            "progress": 100,
+            "image": "/projects/face-recognition.jpg",
+            "pdfUrl": "https://shalmolymondal.com/upload/doc/FaceRecognition_PCA_DC_2017.pdf",
             "featured": true
         },
         {
             "id": "3",
-            "title": "Data Pipeline Orchestrator",
-            "category": "Core",
-            "description": "ETL pipeline orchestration system for processing large-scale datasets with automated monitoring and alerting.",
+            "title": "Road Marking Detection",
+            "category": "Computer Vision",
+            "description": "A bicycle lane detection system using computer vision to detect and classify road markings for safer cycling infrastructure.",
             "technologies": [
                 "Python",
-                "Apache Airflow",
-                "PostgreSQL",
-                "AWS"
-            ],
-            "status": "In Progress",
-            "progress": 75,
-            "image": "/projects/data-pipeline.jpg",
-            "githubUrl": "https://github.com/shalmoly/data-orchestrator",
-            "featured": true
-        },
-        {
-            "id": "4",
-            "title": "Analytics Dashboard",
-            "category": "Full Stack",
-            "description": "Real-time analytics dashboard for monitoring business metrics with interactive visualizations.",
-            "technologies": [
-                "TypeScript",
-                "React",
-                "MongoDB",
-                "Express.js"
+                "OpenCV",
+                "Deep Learning",
+                "Image Processing"
             ],
             "status": "Completed",
             "progress": 100,
-            "image": "/projects/analytics-dashboard.jpg",
-            "liveUrl": "https://analytics-dashboard.vercel.app/",
-            "githubUrl": "https://github.com/shalmoly/analytics-dashboard",
-            "featured": false
+            "image": "/projects/road-marking.jpg",
+            "githubUrl": "https://github.com/ShalmolyMondal/bicycle-lane-detector",
+            "featured": true
         }
     ],
     "art": [
