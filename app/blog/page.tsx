@@ -4,13 +4,15 @@ import AnimatedGridBackground from '@/components/AnimatedGridBackground';
 import Card3DTilt from '@/components/Card3DTilt';
 import SpotlightCard from '@/components/SpotlightCard';
 import FadeIn from '@/components/FadeIn';
+import FlowingGradient from '@/components/FlowingGradient';
 import { getBlogs } from '@/lib/data';
 
 export default function BlogPage() {
     const blogs = getBlogs();
 
     return (
-        <div className="min-h-screen bg-[#0B0C14] text-white">
+        <div className="min-h-screen bg-[#0B0C14] text-white relative overflow-hidden">
+            <FlowingGradient />
             <Navigation />
 
             <AnimatedGridBackground className="pt-20 pb-16">

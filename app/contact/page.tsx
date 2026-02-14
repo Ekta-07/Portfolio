@@ -1,20 +1,21 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import AnimatedGridBackground from '@/components/AnimatedGridBackground';
 import Card3DTilt from '@/components/Card3DTilt';
 import SpotlightCard from '@/components/SpotlightCard';
 import MagneticButton from '@/components/MagneticButton';
 import FadeIn from '@/components/FadeIn';
+import FlowingGradient from '@/components/FlowingGradient';
 import { getPersonalInfo } from '@/lib/data';
 
 export default function ContactPage() {
     const personal = getPersonalInfo();
 
     return (
-        <div className="min-h-screen bg-[#0B0C14] text-white flex flex-col">
+        <div className="min-h-screen bg-[#0B0C14] text-white flex flex-col relative overflow-hidden">
+            <FlowingGradient />
             <Navigation />
 
-            <AnimatedGridBackground className="flex-1 flex items-center justify-center py-20">
+            <div className="flex-1 flex items-center justify-center py-20">
                 <div className="max-w-2xl w-full mx-auto px-6">
                     <FadeIn direction="up">
                         {/* Floating Card */}
@@ -129,7 +130,7 @@ export default function ContactPage() {
                         </Card3DTilt>
                     </FadeIn>
                 </div>
-            </AnimatedGridBackground>
+            </div>
 
             <Footer />
         </div>
