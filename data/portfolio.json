@@ -112,7 +112,7 @@
             "id": "1",
             "title": "Abstract Data Flow",
             "description": "Digital art representing the flow of data through pipelines",
-            "image": "/art/data-flow.jpg",
+            "image": "/art/data-flow.png",
             "category": "Digital Art",
             "date": "2024-01-15"
         },
@@ -120,7 +120,7 @@
             "id": "2",
             "title": "Neural Networks",
             "description": "Visualization of neural network architecture",
-            "image": "/art/neural-networks.jpg",
+            "image": "/art/neural-networks.png",
             "category": "Generative Art",
             "date": "2024-02-20"
         },
@@ -128,7 +128,7 @@
             "id": "3",
             "title": "Code Poetry",
             "description": "Artistic interpretation of beautiful code structures",
-            "image": "/art/code-poetry.jpg",
+            "image": "/art/code-poetry.png",
             "category": "Digital Art",
             "date": "2024-03-10"
         }

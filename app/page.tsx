@@ -293,8 +293,12 @@ export default function Home() {
                     {artPieces.map((art) => (
                       <Card3DTilt key={art.id} tiltDegree={6} scale={1.02}>
                         <SpotlightCard className="group overflow-hidden rounded-xl bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/10 hover:border-[#6366F1]/25 transition-all h-full">
-                          <div className="aspect-[16/9] bg-[#1E2133] flex items-center justify-center">
-                            <span className="text-4xl opacity-30">🎨</span>
+                          <div className="aspect-[16/9] bg-[#1E2133] relative">
+                            <img
+                              src={art.image}
+                              alt={art.title}
+                              className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                            />
                           </div>
                           <div className="p-4">
                             <h4 className="font-semibold text-white text-sm mb-1">{art.title}</h4>
