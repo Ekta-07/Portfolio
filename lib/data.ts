@@ -63,6 +63,7 @@ export interface Blog {
     readTime: string;
     url: string;
     featured: boolean;
+    image?: string;
 }
 
 export interface Publication {
