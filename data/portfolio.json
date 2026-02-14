@@ -2,7 +2,7 @@
     "personal": {
         "name": "Shalmoly",
         "title": "Data Engineer",
-        "bio": "Welcome to my digital sanctuary. I'm Shalmoly — a data engineer, former researcher, and creative soul. This is where I share my work, art, and thoughts.",
+        "bio": "I'm Shalmoly, a Data Engineer building scalable data pipelines and analytics platforms.",
         "email": "shalmoly@example.com",
         "location": "San Francisco, CA",
         "social": {
@@ -136,13 +136,14 @@
     "blogs": [
         {
             "id": "1",
-            "title": "The World of Data Engineering",
-            "category": "Core",
-            "excerpt": "An introduction to modern data engineering practices and tools that power today's data-driven applications.",
+            "title": "What is ETL? The Ultimate Beginner's Guide",
+            "category": "Data Engineering",
+            "excerpt": "A comprehensive guide to Extract, Transform, and Load processes, explaining how data pipelines work in modern data engineering.",
             "date": "2024-03-18",
-            "readTime": "8 min read",
-            "url": "https://shalmoly.medium.com/data-engineering-intro",
-            "featured": true
+            "readTime": "6 min read",
+            "url": "https://medium.com/codex/what-is-etl-the-ultimate-beginners-guide-f449e8fcb444",
+            "featured": true,
+            "image": "/blog/etl.png"
         },
         {
             "id": "2",
@@ -152,7 +153,8 @@
             "date": "2024-05-13",
             "readTime": "12 min read",
             "url": "https://shalmoly.medium.com/scalable-data-pipelines",
-            "featured": true
+            "featured": true,
+            "image": "/blog/scalable.png"
         },
         {
             "id": "3",
@@ -162,7 +164,8 @@
             "date": "2024-11-15",
             "readTime": "15 min read",
             "url": "https://shalmoly.medium.com/realtime-analytics",
-            "featured": false
+            "featured": false,
+            "image": "/blog/realtime.png"
         }
     ],
     "skills": {

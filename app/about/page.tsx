@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import AnimatedSkillsOrb from '@/components/AnimatedSkillsOrb';
+import FlowingGradient from '@/components/FlowingGradient';
 import { getAbout, getPersonalInfo, getSkills } from '@/lib/data';
 
 export default function AboutPage() {
@@ -9,7 +10,8 @@ export default function AboutPage() {
     const skills = getSkills();
 
     return (
-        <div className="min-h-screen bg-[#0B0C14] text-white">
+        <div className="min-h-screen bg-[#0B0C14] text-white relative overflow-hidden">
+            <FlowingGradient />
             <Navigation />
 
             <main className="pt-24 pb-20">

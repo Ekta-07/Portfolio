@@ -4,6 +4,7 @@ import ProjectCard from '@/components/ProjectCard';
 import FadeIn from '@/components/FadeIn';
 import SpotlightCard from '@/components/SpotlightCard';
 import Card3DTilt from '@/components/Card3DTilt';
+import FlowingGradient from '@/components/FlowingGradient';
 import { getProjects, getResearch } from '@/lib/data';
 
 export default function WorkPage() {
@@ -11,7 +12,8 @@ export default function WorkPage() {
     const research = getResearch();
 
     return (
-        <div className="min-h-screen bg-[#0B0C14] text-white">
+        <div className="min-h-screen bg-[#0B0C14] text-white relative overflow-hidden">
+            <FlowingGradient />
             <Navigation />
 
             <main className="pt-24 pb-20">
