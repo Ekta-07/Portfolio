@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import TypedText from '@/components/TypedText';
 import ProjectCard from '@/components/ProjectCard';
 import Navigation from '@/components/Navigation';
@@ -208,26 +209,24 @@ export default function Home() {
                   </svg>
                   Thesis
                 </h3>
-                <Card3DTilt tiltDegree={5} scale={1.01}>
-                  <SpotlightCard className="bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/15 rounded-xl p-6 mb-8">
-                    <p className="text-[#C9D3EE] text-sm leading-relaxed">
-                      {research.description}
-                    </p>
-                    {research.thesis.url && (
-                      <a
-                        href={research.thesis.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[#6366F1] hover:text-[#818CF8] text-sm font-medium mt-4 transition-colors"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        Read Thesis
-                      </a>
-                    )}
-                  </SpotlightCard>
-                </Card3DTilt>
+                <SpotlightCard className="bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/15 rounded-xl p-6 mb-8">
+                  <p className="text-[#C9D3EE] text-sm leading-relaxed">
+                    {research.description}
+                  </p>
+                  {research.thesis.url && (
+                    <a
+                      href={research.thesis.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#6366F1] hover:text-[#818CF8] text-sm font-medium mt-4 transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      Read Thesis
+                    </a>
+                  )}
+                </SpotlightCard>
               </FadeIn>
 
               {/* Publications */}
@@ -240,35 +239,33 @@ export default function Home() {
                 </h3>
                 <div className="space-y-4">
                   {research.publications.map((pub) => (
-                    <Card3DTilt key={pub.id} tiltDegree={5} scale={1.01}>
-                      <SpotlightCard>
-                        <a
-                          href={pub.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/15 rounded-xl p-6 hover:border-[#6366F1]/30 transition-all group"
-                        >
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex-1">
-                              <div className="flex items-center gap-3 mb-2">
-                                <span className="px-2 py-0.5 bg-[#6366F1]/15 text-[#818CF8] text-xs font-medium rounded border border-[#6366F1]/20">
-                                  {pub.venue}
-                                </span>
-                                <span className="text-[#939DB8] text-xs">{pub.year}</span>
-                                <span className="text-[#939DB8] text-xs">· {pub.type}</span>
-                              </div>
-                              <h4 className="text-base font-medium text-white mb-2 group-hover:text-[#C9D3EE] transition-colors leading-snug">
-                                {pub.title}
-                              </h4>
-                              <p className="text-[#939DB8] text-sm">{pub.authors}</p>
+                    <SpotlightCard key={pub.id}>
+                      <a
+                        href={pub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/15 rounded-xl p-6 hover:border-[#6366F1]/30 transition-all group"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <span className="px-2 py-0.5 bg-[#6366F1]/15 text-[#818CF8] text-xs font-medium rounded border border-[#6366F1]/20">
+                                {pub.venue}
+                              </span>
+                              <span className="text-[#939DB8] text-xs">{pub.year}</span>
+                              <span className="text-[#939DB8] text-xs">· {pub.type}</span>
                             </div>
-                            <svg className="w-5 h-5 text-[#939DB8] group-hover:text-[#6366F1] transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
+                            <h4 className="text-base font-medium text-white mb-2 group-hover:text-[#C9D3EE] transition-colors leading-snug">
+                              {pub.title}
+                            </h4>
+                            <p className="text-[#939DB8] text-sm">{pub.authors}</p>
                           </div>
-                        </a>
-                      </SpotlightCard>
-                    </Card3DTilt>
+                          <svg className="w-5 h-5 text-[#939DB8] group-hover:text-[#6366F1] transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </div>
+                      </a>
+                    </SpotlightCard>
                   ))}
                 </div>
               </div>
@@ -293,11 +290,15 @@ export default function Home() {
                     {artPieces.map((art) => (
                       <Card3DTilt key={art.id} tiltDegree={6} scale={1.02}>
                         <SpotlightCard className="group overflow-hidden rounded-xl bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/10 hover:border-[#6366F1]/25 transition-all h-full">
-                          <div className="aspect-[16/9] bg-[#1E2133] relative">
-                            <img
+                          <div className="aspect-[16/9] bg-[#1E2133] relative overflow-hidden">
+                            <Image
                               src={art.image}
                               alt={art.title}
-                              className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                              fill
+                              className="object-cover transform hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                              quality={85}
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                           </div>
                           <div className="p-4">
@@ -339,10 +340,14 @@ export default function Home() {
                     header={
                       <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/10 relative">
                         {blog.image ? (
-                          <img
+                          <Image
                             src={blog.image}
                             alt={blog.title}
-                            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                            fill
+                            className="object-cover transform hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            quality={85}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
                         ) : (
                           <div className="w-full h-full bg-gradient-to-br from-neutral-900 to-neutral-800" />

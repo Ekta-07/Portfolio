@@ -23,7 +23,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
                     repeat: Infinity,
                     repeatType: "reverse",
                 }}
-                className="absolute left-0 top-0 h-[20rem] w-[20rem] rounded-full bg-purple-500/20 blur-[10rem]"
+                className="absolute left-0 top-0 h-[20rem] w-[20rem] rounded-full bg-purple-500/20 blur-[6rem]"
             ></motion.div>
             <motion.div
                 animate={{
@@ -36,7 +36,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
                     repeat: Infinity,
                     repeatType: "reverse",
                 }}
-                className="absolute right-0 top-0 h-[25rem] w-[25rem] rounded-full bg-indigo-500/20 blur-[10rem]"
+                className="absolute right-0 top-0 h-[25rem] w-[25rem] rounded-full bg-indigo-500/20 blur-[6rem]"
             ></motion.div>
             <motion.div
                 animate={{
@@ -49,7 +49,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
                     repeat: Infinity,
                     repeatType: "reverse",
                 }}
-                className="absolute right-0 bottom-0 h-[30rem] w-[30rem] rounded-full bg-blue-500/20 blur-[10rem]"
+                className="absolute right-0 bottom-0 h-[30rem] w-[30rem] rounded-full bg-blue-500/20 blur-[6rem]"
             ></motion.div>
         </div>
     );

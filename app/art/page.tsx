@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 import { getArt } from '@/lib/data';
 
 export default function ArtPage() {
@@ -26,9 +27,17 @@ export default function ArtPage() {
                                 key={art.id}
                                 className="group relative overflow-hidden rounded-xl bg-[#171926] border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all hover:shadow-2xl hover:shadow-[#6366F1]/10"
                             >
-                                {/* Art Image Placeholder */}
-                                <div className="aspect-square bg-gradient-to-br from-[#6366F1]/20 via-[#818CF8]/15 to-[#4F46E5]/20 flex items-center justify-center">
-                                    <span className="text-6xl">🎨</span>
+                                {/* Art Image */}
+                                <div className="aspect-square bg-gradient-to-br from-[#6366F1]/20 via-[#818CF8]/15 to-[#4F46E5]/20 flex items-center justify-center relative overflow-hidden">
+                                    <Image
+                                        src={art.image}
+                                        alt={art.title}
+                                        fill
+                                        className="object-cover"
+                                        loading="lazy"
+                                        quality={85}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
                                 </div>
 
                                 {/* Art Info */}

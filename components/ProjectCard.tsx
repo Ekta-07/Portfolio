@@ -11,7 +11,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <Card3DTilt tiltDegree={8} scale={1.03}>
+        <Card3DTilt tiltDegree={6} scale={1.02} glareEffect={false}>
             <SpotlightCard className="group relative bg-[#171926] rounded-lg overflow-hidden border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#6366F1]/10">
             {/* Status Badge */}
             {project.status && (

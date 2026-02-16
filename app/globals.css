@@ -173,3 +173,32 @@
         transform: translate(-50%, -40%) scale(1);
     }
 }
+
+/* View Transitions API Animations */
+@supports (view-transition-name: none) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.3s;
+        animation-timing-function: cubic-bezier(0.25, 0.4, 0.25, 1);
+    }
+
+    ::view-transition-old(root) {
+        animation-name: fade-out;
+    }
+
+    ::view-transition-new(root) {
+        animation-name: fade-in;
+    }
+
+    @keyframes fade-out {
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+    }
+}

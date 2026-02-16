@@ -1,8 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import AnimatedGridBackground from '@/components/AnimatedGridBackground';
-import Card3DTilt from '@/components/Card3DTilt';
-import SpotlightCard from '@/components/SpotlightCard';
 import FadeIn from '@/components/FadeIn';
 import FlowingGradient from '@/components/FlowingGradient';
 import { getBlogs } from '@/lib/data';
@@ -44,19 +42,14 @@ export default function BlogPage() {
                                 : '';
 
                             return (
-                                <FadeIn key={blog.id} direction="up" delay={index * 0.1}>
-                                    <Card3DTilt
-                                        tiltDegree={5}
-                                        scale={1.02}
-                                        className={spanClass}
-                                    >
-                                        <SpotlightCard className="h-full">
-                                            <a
-                                                href={blog.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="block h-full bg-[#171926] border border-[#727DA1]/15 rounded-xl p-6 hover:border-[#6366F1]/40 transition-all group"
-                                            >
+                                <div key={blog.id} className={spanClass}>
+                                    <FadeIn direction="up" delay={index * 0.1}>
+                                        <a
+                                            href={blog.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="block h-full bg-[#171926] border border-[#727DA1]/15 rounded-xl p-6 hover:border-[#6366F1]/40 transition-all group"
+                                        >
                                                 {/* Badges */}
                                                 <div className="flex items-center gap-2 mb-3 flex-wrap">
                                                     <span className="px-2.5 py-1 bg-[#6366F1]/15 text-[#818CF8] text-xs font-medium rounded-full border border-[#6366F1]/20">
@@ -98,9 +91,8 @@ export default function BlogPage() {
                                                     </svg>
                                                 </div>
                                             </a>
-                                        </SpotlightCard>
-                                    </Card3DTilt>
-                                </FadeIn>
+                                        </FadeIn>
+                                    </div>
                             );
                         })}
                     </div>

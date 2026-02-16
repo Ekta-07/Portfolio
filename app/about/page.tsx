@@ -11,7 +11,7 @@ export default function AboutPage() {
 
     return (
         <div className="min-h-screen bg-[#0B0C14] text-white relative overflow-hidden">
-            <FlowingGradient />
+            <FlowingGradient blobCount={2} animated={false} />
             <Navigation />
 
             <main className="pt-24 pb-20">
