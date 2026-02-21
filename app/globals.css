@@ -160,6 +160,19 @@
     .animate-spotlight {
         animation: spotlight 2s ease .75s 1 forwards;
     }
+
+    .scale-102 {
+        transform: scale(1.02);
+    }
+
+    .hover\:scale-102:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease-out;
+    }
+
+    .animate-shimmer {
+        animation: shimmer 3s infinite;
+    }
 }
 
 @keyframes spotlight {
@@ -171,6 +184,34 @@
     100% {
         opacity: 1;
         transform: translate(-50%, -40%) scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* CSS-based fade-in animation (no visibility blocking) */
+@keyframes fadeInSmooth {
+    from {
+        opacity: 0.95;
+    }
+    to {
+        opacity: 1;
     }
 }
 

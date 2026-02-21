@@ -13,7 +13,7 @@ import { BackgroundBeams } from '@/components/ui/background-beams';
 export default function CosmicBackground({ children, className = '' }: CosmicBackgroundProps) {
     return (
         <div className={`relative w-full overflow-hidden bg-gradient-to-b from-[#0B0C14] via-[#0f101f] to-[#161a31] ${className}`}>
-            <BackgroundBeams className="opacity-40" />
+            <BackgroundBeams className="opacity-20" />
 
             {/* Background Gradients */}
             <div className="absolute inset-0 pointer-events-none">

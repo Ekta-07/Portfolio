@@ -3,7 +3,6 @@ import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
 import FadeIn from '@/components/FadeIn';
 import SpotlightCard from '@/components/SpotlightCard';
-import Card3DTilt from '@/components/Card3DTilt';
 import FlowingGradient from '@/components/FlowingGradient';
 import { getProjects, getResearch } from '@/lib/data';
 

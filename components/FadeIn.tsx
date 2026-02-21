@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, type Variants } from 'motion/react';
 import { type ReactNode } from 'react';
 
 interface FadeInProps {
@@ -12,12 +11,12 @@ interface FadeInProps {
     once?: boolean;
 }
 
-const directionOffsets = {
-    up: { y: 40 },
-    down: { y: -40 },
-    left: { x: 40 },
-    right: { x: -40 },
-    none: {},
+const directionStyles = {
+    up: 'translate-y-0',
+    down: 'translate-y-0',
+    left: 'translate-x-0',
+    right: 'translate-x-0',
+    none: '',
 };
 
 export default function FadeIn({
@@ -28,32 +27,18 @@ export default function FadeIn({
     className = '',
     once = true,
 }: FadeInProps) {
-    const variants: Variants = {
-        hidden: {
-            opacity: 0,
-            ...directionOffsets[direction],
-        },
-        visible: {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            transition: {
-                duration,
-                delay,
-                ease: [0.25, 0.4, 0.25, 1],
-            },
-        },
+    // CSS-only approach: Elements are visible immediately, no whileInView blocking
+    // Animation happens only if prefers-reduced-motion is not set
+    const style = {
+        animation: `fadeInSmooth ${duration}s ease-out ${delay}s forwards`,
     };
 
     return (
-        <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once, margin: '-80px' }}
-            variants={variants}
-            className={className}
+        <div
+            style={style}
+            className={`${className}`}
         >
             {children}
-        </motion.div>
+        </div>
     );
 }
