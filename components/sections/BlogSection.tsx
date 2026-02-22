@@ -12,11 +12,15 @@ export function BlogSection({ blogs }: BlogSectionProps) {
   return (
     <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#6366F1] animate-pulse"></div>
-          <h2 className="text-lg font-bold text-white">Latest Thoughts</h2>
+        <div className="mb-12">
+          <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Blog & Insights</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+            Latest Articles & Thoughts
+          </h2>
+          <p className="text-[#939DB8] text-sm leading-relaxed">
+            In-depth guides, technical insights, and reflections on data engineering, product development, and technology.
+          </p>
         </div>
-        <p className="text-sm text-[#939DB8] mb-10 ml-5">Insights, tutorials, and reflections</p>
 
         <BentoGrid className="md:grid-cols-2">
           {blogs.map((blog, i) => (

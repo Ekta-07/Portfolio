@@ -45,7 +45,7 @@ export default function Navigation() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
-                        {navItems.slice(1).map((item) => {
+                        {navItems.map((item) => {
                             const active = isActive(item.href);
                             return (
                                 <Link
@@ -102,7 +102,7 @@ export default function Navigation() {
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <div className="lg:hidden mt-4 pb-4 border-t border-[#6366F1]/10 pt-4 space-y-2">
-                        {navItems.slice(1).map((item) => {
+                        {navItems.map((item) => {
                             const active = isActive(item.href);
                             return (
                                 <Link

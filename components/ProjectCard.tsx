@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
-        <SpotlightCard className="group relative bg-[#171926] rounded-lg overflow-hidden border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#6366F1]/10 hover:scale-102 cursor-pointer">
+        <SpotlightCard className="group relative bg-[#171926] rounded-lg overflow-hidden border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#6366F1]/10 hover:scale-102 cursor-pointer h-full">
             {/* Status Badge */}
             {project.status && (
                 <div className="absolute top-4 right-4 z-10">
@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </div>
             )}
 
-            <div className="p-6">
+            <div className="p-6 flex flex-col h-full">
                 {/* Category */}
                 <div className="text-[#939DB8] text-xs font-medium mb-3">{project.category}</div>
 
@@ -66,7 +66,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 )}
 
                 {/* Links */}
-                <div className="flex items-center gap-4 pt-4 border-t border-[#727DA1]/15">
+                <div className="flex items-center gap-4 pt-4 border-t border-[#727DA1]/15 mt-auto">
                     {project.githubUrl && (
                         <Link
                             href={project.githubUrl}
