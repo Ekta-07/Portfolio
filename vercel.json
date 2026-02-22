@@ -18,12 +18,6 @@
       "memory": 1024
     }
   },
-  "crons": [
-    {
-      "path": "/api/revalidate",
-      "schedule": "0 0 * * *"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
