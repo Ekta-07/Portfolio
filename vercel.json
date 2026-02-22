@@ -11,7 +11,7 @@
       "staging": false
     }
   },
-  "regions": ["sfo1", "sin1", "iad1"],
+  "regions": ["sfo1"],
   "functions": {
     "api/**": {
       "maxDuration": 60,
