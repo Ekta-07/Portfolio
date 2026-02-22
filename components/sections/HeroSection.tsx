@@ -119,6 +119,16 @@ export function HeroSection({ personal }: HeroSectionProps) {
                     {social.icon}
                   </a>
                 ))}
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="p-3 bg-[#1a1a1a] hover:bg-[#262626] rounded-full transition-colors border border-[#262626] text-white/70 hover:text-white"
+                  title="Download Resume"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3v-7" />
+                  </svg>
+                </a>
               </div>
             </FadeIn>
           </div>

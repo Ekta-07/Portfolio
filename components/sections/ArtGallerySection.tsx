@@ -12,11 +12,15 @@ export function ArtGallerySection({ artPieces }: ArtGallerySectionProps) {
   return (
     <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#818CF8]"></div>
-          <h2 className="text-lg font-bold text-white">Creative Arts</h2>
+        <div className="mb-12">
+          <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Creative Expression</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+            Digital Art & Visual Design
+          </h2>
+          <p className="text-[#939DB8] text-sm leading-relaxed">
+            Exploring the intersection of creativity, technology, and visual storytelling through digital art.
+          </p>
         </div>
-        <p className="text-sm text-[#939DB8] mb-10 ml-5">Digital art and creative expressions</p>
 
         <div className="grid grid-cols-1 gap-8">
           {/* Art Preview (Full Width) */}

@@ -6,8 +6,9 @@ const dataFilePath = path.join(process.cwd(), 'data', 'portfolio.json');
 export interface Social {
     github: string;
     linkedin: string;
-    twitter: string;
-    medium: string;
+    googleScholar?: string;
+    twitter?: string;
+    medium?: string;
 }
 
 export interface Personal {
@@ -74,6 +75,7 @@ export interface Publication {
     authors: string;
     url: string;
     type: string;
+    doi?: string;
 }
 
 export interface Thesis {

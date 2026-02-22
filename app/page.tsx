@@ -2,15 +2,14 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { PageBackground } from '@/components/layout/PageBackground';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { FeaturedWorkSection } from '@/components/sections/FeaturedWorkSection';
+import { CurrentFocusSection } from '@/components/sections/CurrentFocusSection';
 import { ResearchSection } from '@/components/sections/ResearchSection';
 import { ArtGallerySection } from '@/components/sections/ArtGallerySection';
 import { BlogSection } from '@/components/sections/BlogSection';
-import { getPersonalInfo, getProjects, getBlogs, getArt, getResearch } from '@/lib/data';
+import { getPersonalInfo, getBlogs, getArt, getResearch } from '@/lib/data';
 
 export default function Home() {
   const personal = getPersonalInfo();
-  const featuredProjects = getProjects().filter(p => p.featured).slice(0, 3);
   const blogs = getBlogs().slice(0, 5);
   const artPieces = getArt().slice(0, 3);
   const research = getResearch();
@@ -25,7 +24,7 @@ export default function Home() {
 
       {/* Main Content Area */}
       <div className="relative z-20 bg-[#0B0C14]">
-        <FeaturedWorkSection featuredProjects={featuredProjects} />
+        <CurrentFocusSection />
         <ResearchSection research={research} />
         <ArtGallerySection artPieces={artPieces} />
         <BlogSection blogs={blogs} />
