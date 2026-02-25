@@ -29,9 +29,8 @@ export default function WorkPage() {
 
                     {/* Featured Projects */}
                     <section className="mb-24">
-                        <div className="flex items-center gap-3 mb-10">
-                            <div className="w-2 h-2 rounded-full bg-[#6366F1]"></div>
-                            <h2 className="text-lg font-semibold">Projects</h2>
+                        <div className="mb-10">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-3">Projects</h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {projects.map((project, index) => (

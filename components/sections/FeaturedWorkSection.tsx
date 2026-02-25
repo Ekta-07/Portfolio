@@ -9,15 +9,17 @@ interface FeaturedWorkSectionProps {
 export function FeaturedWorkSection({ featuredProjects }: FeaturedWorkSectionProps) {
 
   return (
-    <section className="pt-32 pb-16 px-6">
+    <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#6366F1]"></div>
-          <h2 className="text-lg font-bold text-white">Featured Work</h2>
+        <div className="mb-12">
+          <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Featured Work</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+            Selected projects I&apos;ve built
+          </h2>
         </div>
-        <p className="text-sm text-[#939DB8] mb-10 ml-5">Selected projects I&apos;ve built</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           {featuredProjects.map((project, index) => (
             <div key={project.id}>
               <ProjectCard project={project} />

@@ -34,36 +34,30 @@ export function HeroSection({ personal }: HeroSectionProps) {
           {/* Left Column: Text Content */}
           <div className="space-y-8 text-left">
             <FadeIn direction="up" delay={0.1}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs text-white/70 tracking-wider uppercase font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                Available for new opportunities
+              <div className="inline-block border border-white/40 px-4 py-2 rounded-lg mb-4">
+                <span className="text-sm font-medium text-white/80 tracking-wide uppercase">
+                  Creative Soul
+                </span>
               </div>
             </FadeIn>
 
             <div className="space-y-4">
               <FadeIn direction="up" delay={0.2}>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[0.9]">
-                  {personal.name.split(' ')[0]} <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-                    {personal.name.split(' ')[1]}
-                  </span>
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1]">
+                  Hi, I am {personal.name}!
                 </h1>
               </FadeIn>
 
               <FadeIn direction="up" delay={0.3}>
-                <div className="text-xl md:text-2xl text-neutral-300 font-light max-w-lg">
-                  <TextGenerateEffect
-                    words="Building scalable data infrastructure and crafting intelligent systems."
-                    className="leading-snug"
-                  />
+                <div className="text-2xl md:text-3xl text-neutral-300 font-light max-w-2xl">
+                  Welcome to my digital sanctuary.
                 </div>
               </FadeIn>
             </div>
 
             <FadeIn direction="up" delay={0.4}>
-              <p className="text-base text-neutral-400 max-w-md leading-relaxed">
-                I'm a Data Engineer and creative technologist passionate about transforming raw data into meaningful insights.
-                Currently open to collaborating on innovative projects.
+              <p className="text-base md:text-lg text-neutral-400 max-w-2xl leading-relaxed">
+                I'm a data engineer, former researcher, and creative soul. Here, I share my work, my writing, and my art — thoughtfully brought together in one place.
               </p>
             </FadeIn>
 
