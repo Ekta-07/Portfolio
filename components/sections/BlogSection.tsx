@@ -11,17 +11,17 @@ interface BlogSectionProps {
 export function BlogSection({ blogs }: BlogSectionProps) {
 
   return (
-    <section className="py-16 px-6 relative">
+    <section className="py-16 px-6 relative overflow-hidden">
       {/* Top border gradient separator */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6366F1]/50 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+        <div className="mb-16">
           <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Blog & Insights</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
             Latest Articles & Thoughts
           </h2>
-          <p className="text-[#939DB8] text-sm leading-relaxed">
+          <p className="text-[#C9D3EE] text-base leading-relaxed max-w-2xl">
             In-depth guides, technical insights, and reflections on data engineering, product development, and technology.
           </p>
         </div>

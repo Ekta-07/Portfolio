@@ -14,14 +14,14 @@ export function ArtGallerySection({ artPieces }: ArtGallerySectionProps) {
   const thumbnails = artPieces.slice(1);
 
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+    <section className="py-16 px-6 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="mb-16">
           <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Creative Expression</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
             Digital Art & Visual Design
           </h2>
-          <p className="text-[#939DB8] text-sm leading-relaxed">
+          <p className="text-[#C9D3EE] text-base leading-relaxed max-w-2xl">
             Exploring the intersection of creativity, technology, and visual storytelling through digital art.
           </p>
         </div>
@@ -31,7 +31,7 @@ export function ArtGallerySection({ artPieces }: ArtGallerySectionProps) {
           {/* Featured - Left column (60%) */}
           <div className="md:col-span-3">
             <SpotlightCard className="h-full">
-              <div className="group overflow-hidden rounded-xl bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/10 hover:border-[#6366F1]/25 transition-all h-full cursor-pointer">
+              <div className="group overflow-hidden rounded-xl bg-gradient-to-br from-[#1A1826]/80 via-[#171926]/70 to-[#0F0F1E]/60 backdrop-blur-md border border-[#6366F1]/20 hover:border-[#6366F1]/40 transition-all h-full cursor-pointer">
                 <div className="aspect-[3/4] bg-[#1E2133] relative overflow-hidden">
                   <Image
                     src={featured.image}
@@ -60,10 +60,10 @@ export function ArtGallerySection({ artPieces }: ArtGallerySectionProps) {
           </div>
 
           {/* Thumbnails - Right column (40%) */}
-          <div className="md:col-span-2 flex flex-col gap-4">
+          <div className="md:col-span-2 flex flex-col gap-6">
             {thumbnails.map((art) => (
               <SpotlightCard key={art.id} className="flex-1">
-                <div className="group overflow-hidden rounded-xl bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/10 hover:border-[#6366F1]/25 transition-all h-full cursor-pointer">
+                <div className="group overflow-hidden rounded-xl bg-gradient-to-br from-[#1A1826]/70 via-[#171926]/60 to-[#0F0F1E]/50 backdrop-blur-md border border-[#6366F1]/20 hover:border-[#6366F1]/40 transition-all h-full cursor-pointer">
                   <div className="aspect-[4/3] bg-[#1E2133] relative overflow-hidden">
                     <Image
                       src={art.image}

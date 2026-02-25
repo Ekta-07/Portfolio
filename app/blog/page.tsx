@@ -29,17 +29,11 @@ export default function BlogPage() {
                         </div>
                     </FadeIn>
 
-                    {/* Masonry/Bento Grid Layout */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-auto">
+                    {/* Bento Grid Layout */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {blogs.map((blog, index) => {
-                            // Create varying card sizes for masonry effect
-                            const isFeatured = blog.featured;
-                            const isLarge = index % 5 === 0;
-                            const spanClass = isFeatured
-                                ? 'md:col-span-2 md:row-span-2'
-                                : isLarge
-                                ? 'md:col-span-2'
-                                : '';
+                            // First item spans full width, rest are normal
+                            const spanClass = index === 0 ? 'md:col-span-3' : '';
 
                             return (
                                 <div key={blog.id} className={spanClass}>
@@ -48,7 +42,10 @@ export default function BlogPage() {
                                             href={blog.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="block h-full bg-[#171926] border border-[#727DA1]/15 rounded-xl p-6 hover:border-[#6366F1]/40 transition-all group"
+                                            className={`block h-full bg-gradient-to-br from-[#1A1826]/70 via-[#171926]/60 to-[#0F0F1E]/50 backdrop-blur-md border border-[#6366F1]/20 rounded-xl hover:border-[#6366F1]/40 transition-all group ${
+                                                index === 0 ? 'p-8 md:p-10' : 'p-6'
+                                            }`}
+
                                         >
                                                 {/* Badges */}
                                                 <div className="flex items-center gap-2 mb-3 flex-wrap">
@@ -63,15 +60,15 @@ export default function BlogPage() {
                                                 </div>
 
                                                 {/* Title */}
-                                                <h2 className={`font-bold mb-2 group-hover:text-[#818CF8] transition-colors leading-tight ${
-                                                    isFeatured ? 'text-2xl md:text-3xl' : 'text-lg'
+                                                <h2 className={`font-bold mb-3 group-hover:text-[#E0E7FF] transition-colors leading-tight ${
+                                                    index === 0 ? 'text-2xl md:text-4xl' : 'text-lg md:text-xl'
                                                 }`}>
                                                     {blog.title}
                                                 </h2>
 
                                                 {/* Excerpt */}
-                                                <p className={`text-[#939DB8] leading-relaxed mb-3 ${
-                                                    isFeatured ? 'text-base line-clamp-4' : 'text-sm line-clamp-3'
+                                                <p className={`text-[#C9D3EE] leading-relaxed mb-4 ${
+                                                    index === 0 ? 'text-base md:text-lg line-clamp-3' : 'text-sm line-clamp-2'
                                                 }`}>
                                                     {blog.excerpt}
                                                 </p>

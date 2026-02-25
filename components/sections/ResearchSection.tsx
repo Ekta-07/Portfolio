@@ -9,15 +9,15 @@ interface ResearchSectionProps {
 export function ResearchSection({ research }: ResearchSectionProps) {
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Section Heading */}
-        <div className="mb-12">
+        <div className="mb-16">
           <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Research & Innovation</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
             Academic Research & Publications
           </h2>
-          <p className="text-[#939DB8] text-sm leading-relaxed">
+          <p className="text-[#C9D3EE] text-base leading-relaxed max-w-2xl">
             Exploring data science, machine learning, and computer vision through academic research and published findings.
           </p>
         </div>
@@ -26,14 +26,14 @@ export function ResearchSection({ research }: ResearchSectionProps) {
         <div className="mb-12">
           <div className="flex items-center gap-2 mb-6">
             <GraduationCap className="w-5 h-5 text-[#818CF8]" />
-            <h3 className="text-lg font-semibold text-[#C9D3EE]">Thesis</h3>
+            <h3 className="text-lg font-semibold text-white">Thesis</h3>
           </div>
           <SpotlightCard>
-            <div className="relative bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/15 rounded-xl p-8 overflow-hidden group">
+            <div className="relative bg-gradient-to-br from-[#1A1826]/80 via-[#171926]/70 to-[#0F0F1E]/60 backdrop-blur-md border border-[#6366F1]/25 rounded-xl p-8 overflow-hidden group hover:border-[#6366F1]/40 transition-colors">
               {/* Left accent strip */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6366F1] via-[#818CF8] to-transparent" />
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#6366F1] via-[#818CF8] to-transparent" />
 
-              <p className="text-[#C9D3EE] text-base leading-relaxed mb-6 pl-6">
+              <p className="text-[#E0E7FF] text-lg leading-relaxed mb-8 pl-6 italic">
                 "{research.description}"
               </p>
               {research.thesis.url && (
@@ -57,16 +57,16 @@ export function ResearchSection({ research }: ResearchSectionProps) {
         <div>
           <div className="flex items-center gap-2 mb-8">
             <BookOpen className="w-5 h-5 text-[#818CF8]" />
-            <h3 className="text-lg font-semibold text-[#C9D3EE]">Publications</h3>
+            <h3 className="text-lg font-semibold text-white">Publications</h3>
           </div>
           <div className="space-y-6">
             {research.publications.map((pub, index) => (
               <SpotlightCard key={pub.id}>
-                <div className="bg-[#171926]/80 backdrop-blur-sm border border-[#727DA1]/15 rounded-xl p-6 hover:border-[#6366F1]/30 transition-all group">
+                <div className="bg-gradient-to-br from-[#1A1826]/70 via-[#171926]/60 to-[#0F0F1E]/50 backdrop-blur-md border border-[#6366F1]/20 rounded-xl p-7 hover:border-[#6366F1]/40 transition-all group">
                   <div className="flex gap-6">
                     {/* Number Indicator */}
                     <div className="flex-shrink-0">
-                      <div className="text-4xl font-bold text-[#818CF8]/20 select-none">
+                      <div className="text-5xl font-black bg-gradient-to-b from-[#6366F1] to-[#818CF8] bg-clip-text text-transparent select-none">
                         {String(index + 1).padStart(2, '0')}
                       </div>
                     </div>
@@ -80,10 +80,10 @@ export function ResearchSection({ research }: ResearchSectionProps) {
                         <span className="text-[#939DB8] text-xs">{pub.year}</span>
                         <span className="text-[#939DB8] text-xs">· {pub.type}</span>
                       </div>
-                      <h4 className="text-base font-medium text-white mb-2 group-hover:text-[#C9D3EE] transition-colors leading-snug">
+                      <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-[#E0E7FF] transition-colors leading-snug">
                         {pub.title}
                       </h4>
-                      <p className="text-[#939DB8] text-sm mb-4">{pub.authors}</p>
+                      <p className="text-[#C9D3EE] text-sm mb-4">{pub.authors}</p>
 
                       {/* DOI and View Publication Links */}
                       <div className="flex items-center gap-3 pt-2 flex-wrap">
