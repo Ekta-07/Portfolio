@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Blog } from '@/lib/data';
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
+import { BookOpen } from 'lucide-react';
 
 interface BlogSectionProps {
   blogs: Blog[];
@@ -10,7 +11,10 @@ interface BlogSectionProps {
 export function BlogSection({ blogs }: BlogSectionProps) {
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 relative">
+      {/* Top border gradient separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6366F1]/50 to-transparent" />
+
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Blog & Insights</p>
@@ -29,24 +33,32 @@ export function BlogSection({ blogs }: BlogSectionProps) {
               title={blog.title}
               description={blog.excerpt}
               header={
-                <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/10 relative">
+                <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden border border-white/10 relative group">
                   {blog.image ? (
                     <Image
                       src={blog.image}
                       alt={blog.title}
                       fill
-                      className="object-cover transform hover:scale-105 transition-transform duration-500"
+                      className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                       loading="eager"
                       quality={85}
-                      priority={true}
+                      priority={i === 0}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-neutral-900 to-neutral-800" />
                   )}
+                  {/* Featured badge overlay */}
+                  {i === 0 && (
+                    <div className="absolute top-3 right-3">
+                      <span className="px-3 py-1.5 bg-[#6366F1] text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                        Featured
+                      </span>
+                    </div>
+                  )}
                 </div>
               }
-              icon={<svg className="h-4 w-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>}
+              icon={<BookOpen className="h-4 w-4 text-[#818CF8]" />}
               className={i === 2 || i === 3 || i === 6 ? "md:col-span-2" : ""}
               url={blog.url}
               category={blog.category}
