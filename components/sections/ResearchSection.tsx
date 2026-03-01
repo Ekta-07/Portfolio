@@ -9,7 +9,7 @@ interface ResearchSectionProps {
 export function ResearchSection({ research }: ResearchSectionProps) {
 
   return (
-    <section className="py-16 px-6 relative overflow-hidden">
+    <section className="py-16 px-6 relative overflow-hidden bg-gradient-to-b from-[#6366F1]/6 via-transparent to-transparent">
       <div className="max-w-6xl mx-auto">
         {/* Section Heading */}
         <div className="mb-16">

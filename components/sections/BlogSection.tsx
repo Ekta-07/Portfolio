@@ -11,7 +11,7 @@ interface BlogSectionProps {
 export function BlogSection({ blogs }: BlogSectionProps) {
 
   return (
-    <section className="py-16 px-6 relative overflow-hidden">
+    <section className="py-16 px-6 relative overflow-hidden bg-gradient-to-b from-[#6366F1]/6 via-transparent to-transparent">
       {/* Top border gradient separator */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6366F1]/50 to-transparent" />
 

@@ -9,6 +9,7 @@ import Spotlight from '@/components/Spotlight';
 import TextGenerateEffect from '@/components/TextGenerateEffect';
 import ScrollIndicator from '@/components/ScrollIndicator';
 import { CodeWindow } from '@/components/CodeWindow';
+import RotatingBadge from '@/components/RotatingBadge';
 
 interface HeroSectionProps {
   personal: Personal;
@@ -34,11 +35,10 @@ export function HeroSection({ personal }: HeroSectionProps) {
           {/* Left Column: Text Content */}
           <div className="space-y-8 text-left">
             <FadeIn direction="up" delay={0.1}>
-              <div className="inline-block border border-white/40 px-4 py-2 rounded-lg mb-4">
-                <span className="text-sm font-medium text-white/80 tracking-wide uppercase">
-                  Creative Soul
-                </span>
-              </div>
+              <RotatingBadge
+                words={['Research', 'Data Engineer', 'Creative Soul']}
+                duration={3000}
+              />
             </FadeIn>
 
             <div className="space-y-4">
