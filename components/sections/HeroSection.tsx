@@ -37,7 +37,7 @@ export function HeroSection({ personal }: HeroSectionProps) {
             <FadeIn direction="up" delay={0.1}>
               <RotatingBadge
                 words={['Research', 'Data Engineer', 'Creative Soul']}
-                duration={3000}
+                duration={3500}
               />
             </FadeIn>
 
