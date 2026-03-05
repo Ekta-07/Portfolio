@@ -25,10 +25,29 @@ export interface CurrentWork {
     description: string;
 }
 
+export interface Experience {
+    role: string;
+    company: string;
+    period: string;
+    type?: string;
+    location?: string;
+    description: string;
+}
+
+export interface Education {
+    degree: string;
+    institution: string;
+    period: string;
+    field: string;
+    logo?: string;
+}
+
 export interface About {
     intro: string;
     description: string;
     currentlyWorkingOn: CurrentWork[];
+    experience: Experience[];
+    education: Education[];
 }
 
 export interface Project {

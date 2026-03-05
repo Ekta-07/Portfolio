@@ -25,6 +25,87 @@
                 "title": "Data Pipeline Orchestration",
                 "description": "Designing and implementing ETL pipelines with Airflow and dbt"
             }
+        ],
+        "experience": [
+            {
+                "role": "Developer, Data Engineer",
+                "company": "Federation University Australia",
+                "period": "Jul 2024 - Present",
+                "type": "Full-time",
+                "location": "Melbourne, Victoria, Australia",
+                "description": "Building scalable data pipelines and analytics platforms using Python and Microsoft SQL Server."
+            },
+            {
+                "role": "Sessional Academic",
+                "company": "Swinburne University of Technology",
+                "period": "Mar 2020 - Present",
+                "type": "Part-time",
+                "location": "Hawthorn, Victoria, Australia",
+                "description": "Delivering lectures and tutorials for undergraduate and postgraduate courses in IoT, data visualization, programming, big data, and computer systems. Supervising postgraduate research projects in IoT, data science, and big data, providing guidance and mentorship to students throughout the research process."
+            },
+            {
+                "role": "IoT RND Data Analyst",
+                "company": "Blueiot Technology Co., Ltd",
+                "period": "Aug 2023 - Jun 2024",
+                "type": "Part-time",
+                "location": "Melbourne, Victoria, Australia",
+                "description": "Conducted in-depth analysis of IoT sensor data to optimize air quality monitoring systems. Designed and developed wire frame prototypes for monitoring building sensor systems. Created interactive dashboards to visualize air quality trends and patterns."
+            },
+            {
+                "role": "Research Assistant",
+                "company": "Swinburne University of Technology",
+                "period": "Oct 2022 - Jun 2023",
+                "type": "Contract",
+                "location": "Melbourne, Victoria, Australia",
+                "description": "Developed AI-driven solutions for real-time detection of bicycle lanes using computer vision techniques to improve road safety for cyclists, particularly in low-visibility nighttime conditions."
+            },
+            {
+                "role": "IoT Researcher",
+                "company": "Swinburne University of Technology",
+                "period": "Jul 2019 - Jun 2023",
+                "type": "Full-time",
+                "location": "Hawthorn, Victoria, Australia",
+                "description": "Conceptualized and implemented a framework for efficient and scalable data generation tailored to IoT applications. Developed research prototypes and Proof-of-Concept models to validate hypotheses and derive data-driven insights. Analyzed large-scale IoT data to identify trends, uncover patterns and improve forecasting accuracy. Published research findings in peer-reviewed journals and presented at international conferences. Mentored research projects, ensuring successful execution and impactful outcomes."
+            },
+            {
+                "role": "Software Developer",
+                "company": "Infosys",
+                "period": "Mar 2017 - Apr 2019",
+                "type": "Full-time",
+                "location": "Greater Hyderabad Area",
+                "description": "Led SQL development initiatives for Oracle APPS, focusing on ERP system optimization and enhancement. Spearheaded the creation of technical and functional documentation to streamline project requirements and ensure alignment with business objectives. Drove cross-functional collaboration with stakeholders, delivering high-quality solutions while ensuring adherence to timelines and project goals."
+            },
+            {
+                "role": "Research Scholar",
+                "company": "IIT (ISM) Dhanbad",
+                "period": "Jun 2015 - Apr 2016",
+                "type": "Full-time",
+                "location": "Dhanbad, Jharkhand, India",
+                "description": "Implemented a face recognition system, utilizing eigenface and distance classifier, and achieved an accuracy of 93.33%. Authored and published work in peer-reviewed journals and international conferences showcasing the research findings and contributions in the field."
+            }
+        ],
+        "education": [
+            {
+                "degree": "Doctor of Philosophy (PhD)",
+                "institution": "Swinburne University of Technology",
+                "period": "2019 - 2023",
+                "field": "Internet of Things",
+                "logo": "/education/swinburne.svg"
+            },
+            {
+                "degree": "Master of Technology (MTech)",
+                "institution": "Indian Institute of Technology (ISM), Dhanbad",
+                "period": "2014 - 2016",
+                "field": "Computer Science (Spl in Information Security)",
+                "logo": "/education/iitism.png"
+            },
+            {
+                "degree": "Bachelor of Technology (BTech)",
+                "institution": "Calcutta Institute of Technology",
+                "period": "2010 - 2014",
+                "field": "Computer Science & Engineering",
+                "logo": "/education/cit.png"
+            }
         ]
     },
     "research": {
@@ -203,36 +284,38 @@
         "languages": [
             "Python",
             "SQL",
+            "C",
             "MATLAB",
-            "Node.js"
+            "React.js"
         ],
         "researchAndML": [
-            "Machine Learning",
+            "Independent Research",
             "Deep Learning",
-            "Computer Vision",
-            "OpenCV",
-            "PCA",
-            "Image Processing",
-            "Object Detection"
+            "Digital Image Processing",
+            "Data Modeling",
+            "Data Analytics",
+            "Research Supervision",
+            "Online Research"
         ],
         "dataAndIoT": [
-            "IoT Systems",
-            "Sensor Data Analysis",
+            "Internet of Things (IoT)",
             "Data Pipelines",
             "Data Simulation",
-            "Real-time Analytics"
+            "Sensor Data Analysis"
         ],
         "web": [
-            "React",
+            "React.js",
             "Next.js",
             "TailwindCSS",
             "TypeScript"
         ],
         "tools": [
+            "Amazon Web Services (AWS)",
             "Git",
             "Docker",
-            "AWS",
-            "Linux"
+            "DSA",
+            "Cryptography",
+            "Operating Systems"
         ]
     }
 }
