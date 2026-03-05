@@ -203,32 +203,26 @@
         "languages": [
             "Python",
             "SQL",
-            "TypeScript",
-            "Scala",
-            "Java"
+            "MATLAB",
+            "Node.js"
         ],
-        "dataEngineering": [
-            "Apache Spark",
-            "Apache Kafka",
-            "Airflow",
-            "dbt",
-            "Snowflake"
+        "researchAndML": [
+            "Machine Learning",
+            "Deep Learning",
+            "Computer Vision",
+            "OpenCV",
+            "PCA",
+            "Image Processing",
+            "Object Detection"
         ],
-        "databases": [
-            "PostgreSQL",
-            "MongoDB",
-            "Redis",
-            "Cassandra",
-            "BigQuery"
+        "dataAndIoT": [
+            "IoT Systems",
+            "Sensor Data Analysis",
+            "Data Pipelines",
+            "Data Simulation",
+            "Real-time Analytics"
         ],
-        "cloud": [
-            "AWS",
-            "GCP",
-            "Azure",
-            "Docker",
-            "Kubernetes"
-        ],
-        "frontend": [
+        "web": [
             "React",
             "Next.js",
             "TailwindCSS",
@@ -236,10 +230,9 @@
         ],
         "tools": [
             "Git",
-            "Terraform",
-            "Jenkins",
-            "Grafana",
-            "Datadog"
+            "Docker",
+            "AWS",
+            "Linux"
         ]
     }
 }

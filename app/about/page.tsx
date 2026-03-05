@@ -1,6 +1,5 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import AnimatedSkillsOrb from '@/components/AnimatedSkillsOrb';
 import FlowingGradient from '@/components/FlowingGradient';
 import { getAbout, getPersonalInfo, getSkills } from '@/lib/data';
 
@@ -125,21 +124,24 @@ export default function AboutPage() {
                         <h2 className="text-lg font-bold text-white mb-2">Skills & Technologies</h2>
                         <p className="text-[#939DB8] text-sm mb-6">Technologies and tools I work with regularly.</p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="space-y-6">
                             {[
                                 { title: 'Languages', items: skills.languages },
-                                { title: 'Data Engineering', items: skills.dataEngineering },
-                                { title: 'Databases', items: skills.databases },
-                                { title: 'Cloud & DevOps', items: skills.cloud },
-                                { title: 'Frontend', items: skills.frontend },
+                                { title: 'Research & ML', items: skills.researchAndML },
+                                { title: 'Data & IoT', items: skills.dataAndIoT },
+                                { title: 'Web', items: skills.web },
                                 { title: 'Tools', items: skills.tools },
-                            ].map((group, index) => (
-                                <AnimatedSkillsOrb
-                                    key={group.title}
-                                    title={group.title}
-                                    skills={group.items}
-                                    delay={index * 0.1}
-                                />
+                            ].map((group) => (
+                                <div key={group.title}>
+                                    <h3 className="text-sm font-medium text-[#818CF8] mb-2">{group.title}</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {group.items.map((skill) => (
+                                            <span key={skill} className="px-3 py-1 text-sm text-[#C9D3EE] bg-[#1A1826] border border-[#727DA1]/20 rounded-md">
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
                             ))}
                         </div>
                     </section>

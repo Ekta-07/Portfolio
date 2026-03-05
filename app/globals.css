@@ -157,7 +157,7 @@
 }
 
 @layer utilities {
-    .animate-spotlight {
+.animate-spotlight {
         animation: spotlight 2s ease .75s 1 forwards;
     }
 

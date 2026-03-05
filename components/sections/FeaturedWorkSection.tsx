@@ -12,9 +12,8 @@ export function FeaturedWorkSection({ featuredProjects }: FeaturedWorkSectionPro
     <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Featured Work</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
-            Selected projects I&apos;ve built
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+            <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Featured Work</span>
           </h2>
         </div>
 

@@ -16,13 +16,12 @@ export function ArtGallerySection({ artPieces }: ArtGallerySectionProps) {
   return (
     <section className="py-16 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Creative Expression</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-            Digital Art & Visual Design
+        <div className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 leading-tight">
+            <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Creative Expression</span>
           </h2>
           <p className="text-[#C9D3EE] text-base leading-relaxed max-w-2xl">
-            Exploring the intersection of creativity, technology, and visual storytelling through digital art.
+            Exploring the intersection of creativity and visual storytelling through digital art.
           </p>
         </div>
 

@@ -33,7 +33,7 @@ export function HeroSection({ personal }: HeroSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Column: Text Content */}
-          <div className="space-y-8 text-left">
+          <div className="space-y-4 text-left">
             <FadeIn direction="up" delay={0.1}>
               <RotatingBadge
                 words={['Research', 'Data Engineer', 'Creative Soul']}
@@ -41,10 +41,10 @@ export function HeroSection({ personal }: HeroSectionProps) {
               />
             </FadeIn>
 
-            <div className="space-y-4">
+            <div className="space-y-2">
               <FadeIn direction="up" delay={0.2}>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1]">
-                  Hi, I am {personal.name}!
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.15]">
+                  <span className="bg-gradient-to-r from-white via-[#C9D3EE] to-[#6366F1] bg-clip-text text-transparent">Hi, I am {personal.name}!</span>
                 </h1>
               </FadeIn>
 

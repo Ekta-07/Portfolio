@@ -91,10 +91,9 @@ export interface Research {
 
 export interface Skills {
     languages: string[];
-    dataEngineering: string[];
-    databases: string[];
-    cloud: string[];
-    frontend: string[];
+    researchAndML: string[];
+    dataAndIoT: string[];
+    web: string[];
     tools: string[];
 }
 

@@ -19,19 +19,17 @@ export default function WorkPage() {
                 <div className="max-w-6xl mx-auto px-6">
                     {/* Header */}
                     <FadeIn direction="up">
-                        <div className="text-center mb-20">
-                            <h1 className="text-5xl md:text-6xl font-bold mb-6">My Work</h1>
-                            <p className="text-xl text-[#939DB8] max-w-2xl mx-auto">
+                        <div className="text-center mb-12">
+                            <h1 className="text-5xl md:text-6xl font-bold mb-4"><span className="bg-gradient-to-r from-white via-[#C9D3EE] to-[#6366F1] bg-clip-text text-transparent">My Work</span></h1>
+                            <p className="text-lg text-[#939DB8] max-w-2xl mx-auto">
                                 From research to production — projects I've built and academic contributions
                             </p>
                         </div>
                     </FadeIn>
 
                     {/* Featured Projects */}
-                    <section className="mb-24">
-                        <div className="mb-10">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-3">Projects</h2>
-                        </div>
+                    <section className="mb-16">
+                        <h2 className="text-2xl font-bold mb-6"><span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Projects</span></h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {projects.map((project, index) => (
                                 <FadeIn key={project.id} direction="up" delay={index * 0.15}>
@@ -42,15 +40,11 @@ export default function WorkPage() {
                     </section>
 
                     {/* Thesis + Publications Section */}
-                    <section className="mb-24">
+                    <section className="mb-16">
                         {/* Thesis */}
-                        <h3 className="text-lg font-semibold text-[#C9D3EE] mb-4 flex items-center gap-2">
-                            <svg className="w-4 h-4 text-[#818CF8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                            </svg>
-                            Thesis
-                        </h3>
+                        <h2 className="text-2xl font-bold mb-6">
+                            <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Thesis</span>
+                        </h2>
                         <SpotlightCard className="bg-[#171926] border border-[#727DA1]/15 rounded-xl p-6 mb-8">
                             <p className="text-[#C9D3EE] text-sm leading-relaxed">
                                 {research.description}
@@ -72,12 +66,9 @@ export default function WorkPage() {
 
                         {/* Publications */}
                         <div>
-                            <h3 className="text-lg font-semibold text-[#C9D3EE] mb-4 flex items-center gap-2">
-                                <svg className="w-4 h-4 text-[#818CF8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                Publications
-                            </h3>
+                            <h2 className="text-2xl font-bold mb-6">
+                                <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Publications</span>
+                            </h2>
                             <div className="space-y-8">
                                 {research.publications.map((pub) => (
                                     <SpotlightCard key={pub.id}>

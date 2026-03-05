@@ -12,10 +12,9 @@ export function ResearchSection({ research }: ResearchSectionProps) {
     <section className="py-16 px-6 relative overflow-hidden bg-gradient-to-b from-[#6366F1]/6 via-transparent to-transparent">
       <div className="max-w-6xl mx-auto">
         {/* Section Heading */}
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase mb-3">Research & Innovation</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-            Academic Research & Publications
+        <div className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 leading-tight">
+            <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Research & Publications</span>
           </h2>
           <p className="text-[#C9D3EE] text-base leading-relaxed max-w-2xl">
             Exploring data science, machine learning, and computer vision through academic research and published findings.

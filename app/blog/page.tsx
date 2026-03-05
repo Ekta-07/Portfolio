@@ -22,7 +22,7 @@ export default function BlogPage() {
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#6366F1] animate-pulse"></span>
                                 Latest Writings
                             </div>
-                            <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Blog</h1>
+                            <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight"><span className="bg-gradient-to-r from-white via-[#C9D3EE] to-[#6366F1] bg-clip-text text-transparent">Blog</span></h1>
                             <p className="text-base text-[#939DB8] max-w-2xl mx-auto leading-relaxed">
                                 Thoughts on data engineering, technology, and more
                             </p>

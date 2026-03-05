@@ -27,7 +27,7 @@ export default function ContactPage() {
                                         <span className="w-1.5 h-1.5 rounded-full bg-[#6366F1] animate-pulse"></span>
                                         Let&apos;s Connect
                                     </div>
-                                    <h1 className="text-3xl md:text-4xl font-bold mb-2 tracking-tight">Get In Touch</h1>
+                                    <h1 className="text-3xl md:text-4xl font-bold mb-2 tracking-tight"><span className="bg-gradient-to-r from-white via-[#C9D3EE] to-[#6366F1] bg-clip-text text-transparent">Get In Touch</span></h1>
                                     <p className="text-sm text-[#939DB8] leading-relaxed">
                                         I&apos;m always open to new opportunities and collaborations
                                     </p>

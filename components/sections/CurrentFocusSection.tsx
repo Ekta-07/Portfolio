@@ -15,19 +15,8 @@ export function CurrentFocusSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header Section */}
         <FadeIn direction="up" delay={0.1}>
-          <div className="flex items-center gap-2">
-            <p className="text-xs font-medium tracking-widest text-[#6366F1] uppercase">Current Focus</p>
-            {/* Pulsing dot indicator */}
-            <div className="relative w-2 h-2">
-              <div className="w-2 h-2 rounded-full bg-[#6366F1]" />
-              <div className="absolute inset-0 rounded-full bg-[#6366F1] animate-pulse" />
-            </div>
-          </div>
-        </FadeIn>
-
-        <FadeIn direction="up" delay={0.2}>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-            What I'm working on right now
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 leading-tight">
+            <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Current Focus</span>
           </h2>
         </FadeIn>
 
