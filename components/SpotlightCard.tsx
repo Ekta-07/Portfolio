@@ -1,7 +1,6 @@
 'use client';
 
-import { useRef, useState, ReactNode } from 'react';
-import { motion } from 'motion/react';
+import { useRef, useCallback, type ReactNode } from 'react';
 
 interface SpotlightCardProps {
   children: ReactNode;
@@ -12,58 +11,54 @@ interface SpotlightCardProps {
 export default function SpotlightCard({
   children,
   className = '',
-  spotlightColor = 'rgba(99, 102, 241, 0.15)' // Subtle indigo glow by default
+  spotlightColor = 'rgba(99, 102, 241, 0.15)'
 }: SpotlightCardProps) {
   const divRef = useRef<HTMLDivElement>(null);
-  const [isFocused, setIsFocused] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState(0);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current || isFocused) return;
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (rafRef.current) return; // skip if a frame is already queued
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      const div = divRef.current;
+      const overlay = overlayRef.current;
+      if (!div || !overlay) return;
+      const rect = div.getBoundingClientRect();
+      overlay.style.setProperty('--x', `${e.clientX - rect.left}px`);
+      overlay.style.setProperty('--y', `${e.clientY - rect.top}px`);
+    });
+  }, []);
 
-    const div = divRef.current;
-    const rect = div.getBoundingClientRect();
+  const handleMouseEnter = useCallback(() => {
+    overlayRef.current?.style.setProperty('opacity', '1');
+  }, []);
 
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
-    setOpacity(1);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-    setOpacity(0);
-  };
-
-  const handleMouseEnter = () => {
-    setOpacity(1);
-  };
-
-  const handleMouseLeave = () => {
-    setOpacity(0);
-  };
+  const handleMouseLeave = useCallback(() => {
+    overlayRef.current?.style.setProperty('opacity', '0');
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    }
+  }, []);
 
   return (
-    <motion.div
+    <div
       ref={divRef}
       onMouseMove={handleMouseMove}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`relative overflow-hidden rounded-xl ${className}`}
     >
       <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+        ref={overlayRef}
+        className="pointer-events-none absolute -inset-px transition-opacity duration-300"
         style={{
-          opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 40%)`,
+          opacity: 0,
+          background: `radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), ${spotlightColor}, transparent 40%)`,
         }}
       />
       {children}
-    </motion.div>
+    </div>
   );
 }

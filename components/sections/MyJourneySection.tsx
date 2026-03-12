@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { Briefcase, GraduationCap, Wrench, Trophy } from 'lucide-react';
@@ -51,7 +51,7 @@ function InstitutionLogo({ edu }: { edu: Education }) {
   );
 }
 
-function SkillsTab({ skills }: { skills: Skills }) {
+const SkillsTab = memo(function SkillsTab({ skills }: { skills: Skills }) {
   const groups = [
     { title: 'Languages', items: skills.languages },
     { title: 'Research & ML', items: skills.researchAndML },
@@ -79,9 +79,9 @@ function SkillsTab({ skills }: { skills: Skills }) {
       ))}
     </div>
   );
-}
+});
 
-function ExperienceTab({ experience }: { experience: Experience[] }) {
+const ExperienceTab = memo(function ExperienceTab({ experience }: { experience: Experience[] }) {
   const [selected, setSelected] = useState(0);
   const active = experience[selected];
 
@@ -147,9 +147,9 @@ function ExperienceTab({ experience }: { experience: Experience[] }) {
       </AnimatePresence>
     </div>
   );
-}
+});
 
-function EducationTab({ education }: { education: Education[] }) {
+const EducationTab = memo(function EducationTab({ education }: { education: Education[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
       {education.map((edu, i) => (
@@ -168,7 +168,7 @@ function EducationTab({ education }: { education: Education[] }) {
       ))}
     </div>
   );
-}
+});
 
 export function MyJourneySection({ skills, experience, education }: MyJourneySectionProps) {
   const [activeTab, setActiveTab] = useState<TabId>('education');

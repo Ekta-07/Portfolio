@@ -37,9 +37,8 @@ export function ArtGallerySection({ artPieces }: ArtGallerySectionProps) {
                     alt={featured.title}
                     fill
                     className="object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    loading="eager"
-                    quality={90}
-                    priority={true}
+                    loading="lazy"
+                    quality={80}
                     sizes="(max-width: 768px) 100vw, 60vw"
                   />
                   {/* Overlay gradient - visible on hover */}
@@ -69,8 +68,8 @@ export function ArtGallerySection({ artPieces }: ArtGallerySectionProps) {
                       alt={art.title}
                       fill
                       className="object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      loading="eager"
-                      quality={85}
+                      loading="lazy"
+                      quality={75}
                       sizes="(max-width: 768px) 100vw, 40vw"
                     />
                     {/* Overlay gradient */}

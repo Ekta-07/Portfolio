@@ -39,9 +39,8 @@ export function BlogSection({ blogs }: BlogSectionProps) {
                       alt={blog.title}
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-500"
-                      loading="eager"
-                      quality={85}
-                      priority={i === 0}
+                      loading="lazy"
+                      quality={75}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (

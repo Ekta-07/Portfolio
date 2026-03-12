@@ -168,12 +168,25 @@ export default function ShootingStarsBackground() {
             animationFrameId = requestAnimationFrame(animate);
         };
 
-        window.addEventListener('resize', resize);
+        let paused = false;
+        const handleVisibility = () => {
+            if (document.hidden) {
+                paused = true;
+                cancelAnimationFrame(animationFrameId);
+            } else {
+                paused = false;
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+
+        window.addEventListener('resize', resize, { passive: true });
+        document.addEventListener('visibilitychange', handleVisibility);
         resize();
         animate();
 
         return () => {
             window.removeEventListener('resize', resize);
+            document.removeEventListener('visibilitychange', handleVisibility);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);

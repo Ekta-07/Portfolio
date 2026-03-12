@@ -1,5 +1,3 @@
-'use client';
-
 import { Database, Palette } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import FlowingGradient from '@/components/FlowingGradient';
 import CosmicBackground from '@/components/CosmicBackground';

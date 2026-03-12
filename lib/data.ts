@@ -126,10 +126,15 @@ export interface PortfolioData {
     skills: Skills;
 }
 
-// Read portfolio data
+// Cached portfolio data — avoids re-reading and re-parsing JSON on every call
+let cachedData: PortfolioData | null = null;
+
 export function getPortfolioData(): PortfolioData {
-    const fileContents = fs.readFileSync(dataFilePath, 'utf8');
-    return JSON.parse(fileContents);
+    if (!cachedData) {
+        const fileContents = fs.readFileSync(dataFilePath, 'utf8');
+        cachedData = JSON.parse(fileContents);
+    }
+    return cachedData!;
 }
 
 // Write portfolio data

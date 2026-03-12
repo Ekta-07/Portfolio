@@ -43,7 +43,7 @@ export function HeroSection({ personal }: HeroSectionProps) {
 
             <div className="space-y-2">
               <FadeIn direction="up" delay={0.2}>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.15]">
+                <h1 className="text-[3.4rem] md:text-[4.2rem] lg:text-[5.4rem] font-bold tracking-tight leading-[1.15]">
                   <span className="bg-gradient-to-r from-white via-[#C9D3EE] to-[#6366F1] bg-clip-text text-transparent">Hi, I am {personal.name}!</span>
                 </h1>
               </FadeIn>
