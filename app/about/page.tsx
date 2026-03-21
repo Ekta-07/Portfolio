@@ -3,9 +3,10 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import FlowingGradient from '@/components/FlowingGradient';
 import SpotlightCard from '@/components/SpotlightCard';
-import { getAbout, getPersonalInfo, getSkills } from '@/lib/data';
+import { getAbout, getPersonalInfo } from '@/lib/data';
 import type { Education } from '@/lib/data';
-import { Briefcase, GraduationCap, Wrench } from 'lucide-react';
+import { Briefcase, GraduationCap } from 'lucide-react';
+import SkillRadar from '@/components/SkillRadar';
 
 function InstitutionLogo({ edu }: { edu: Education }) {
     if (edu.logo) {
@@ -38,15 +39,6 @@ function InstitutionLogo({ edu }: { edu: Education }) {
 export default function AboutPage() {
     const about = getAbout();
     const personal = getPersonalInfo();
-    const skills = getSkills();
-
-    const skillGroups = [
-        { title: 'Languages', items: skills.languages },
-        { title: 'Research & ML', items: skills.researchAndML },
-        { title: 'Data & IoT', items: skills.dataAndIoT },
-        { title: 'Web', items: skills.web },
-        { title: 'Tools', items: skills.tools },
-    ];
 
     return (
         <div className="min-h-screen bg-[#0B0C14] text-white relative overflow-hidden">
@@ -188,30 +180,9 @@ export default function AboutPage() {
                         </div>
                     </section>
 
-                    {/* Skills Section */}
+                    {/* Skill Architecture Section */}
                     <section className="mb-16">
-                        <div className="mb-6">
-                            <h2 className="text-2xl font-bold mb-1">
-                                <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Skills & Technologies</span>
-                            </h2>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {skillGroups.map((group) => (
-                                <div key={group.title} className="p-4 rounded-xl bg-[#171926]/50 border border-[#727DA1]/10">
-                                    <h4 className="text-xs font-semibold text-[#818CF8] uppercase tracking-wider mb-3">{group.title}</h4>
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {group.items.map((skill) => (
-                                            <span
-                                                key={skill}
-                                                className="px-2.5 py-1 text-xs text-[#C9D3EE] bg-[#0B0C14]/60 border border-[#727DA1]/15 rounded-md"
-                                            >
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        <SkillRadar />
                     </section>
 
                 </div>
