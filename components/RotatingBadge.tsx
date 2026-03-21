@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface RotatingBadgeProps {
   words: string[];
@@ -12,62 +12,59 @@ export default function RotatingBadge({
   duration = 3500,
 }: RotatingBadgeProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [phase, setPhase] = useState<'entering' | 'visible' | 'exiting'>('entering');
-  const [maxWidth, setMaxWidth] = useState<number | undefined>(undefined);
-  const measureRef = useRef<HTMLDivElement>(null);
+  const [charCount, setCharCount] = useState(0);
+  const [phase, setPhase] = useState<'typing' | 'visible' | 'deleting'>('typing');
+  const rafRef = useRef<number>(0);
+  const lastTickRef = useRef(0);
 
-  const ENTER_MS = 500;
-  const EXIT_MS = 500;
+  const TYPE_INTERVAL = 80;
+  const currentWord = words[currentIndex];
 
-  const advance = useCallback(() => {
-    // Start exit
-    setPhase('exiting');
+  const tick = useCallback((timestamp: number) => {
+    if (!lastTickRef.current) lastTickRef.current = timestamp;
 
-    // After exit completes, swap word and enter
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % words.length);
-      setPhase('entering');
+    const elapsed = timestamp - lastTickRef.current;
 
-      // After enter completes, mark visible
-      setTimeout(() => {
-        setPhase('visible');
-      }, ENTER_MS);
-    }, EXIT_MS);
-  }, [words.length]);
-
-  // Measure widest word on mount
-  useEffect(() => {
-    if (measureRef.current) {
-      const spans = measureRef.current.querySelectorAll('span');
-      let widest = 0;
-      spans.forEach((span) => {
-        widest = Math.max(widest, span.offsetWidth);
+    if (phase === 'typing' && elapsed >= TYPE_INTERVAL) {
+      lastTickRef.current = timestamp;
+      setCharCount((prev) => {
+        const next = prev + 1;
+        if (next >= currentWord.length) {
+          setPhase('visible');
+          return currentWord.length;
+        }
+        return next;
       });
-      setMaxWidth(widest);
     }
-  }, [words]);
 
-  // On mount, finish the initial enter
+    if (phase === 'typing') {
+      rafRef.current = requestAnimationFrame(tick);
+    }
+  }, [phase, currentWord]);
+
+  // Drive typing with rAF
   useEffect(() => {
-    const t = setTimeout(() => setPhase('visible'), ENTER_MS);
-    return () => clearTimeout(t);
-  }, []);
+    if (phase === 'typing') {
+      lastTickRef.current = 0;
+      rafRef.current = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(rafRef.current);
+    }
+  }, [phase, tick]);
 
-  // While visible, wait `duration` then advance
+  // Hold phase
   useEffect(() => {
     if (phase !== 'visible') return;
-    const t = setTimeout(advance, duration);
+    const t = setTimeout(() => setPhase('deleting'), duration);
     return () => clearTimeout(t);
-  }, [phase, duration, advance]);
+  }, [phase, duration]);
 
-  const transform =
-    phase === 'entering'
-      ? 'translateX(-30px)'
-      : phase === 'exiting'
-        ? 'translateX(30px)'
-        : 'translateX(0)';
-
-  const opacity = phase === 'visible' ? 1 : 0;
+  // Delete: clear instantly, advance word
+  useEffect(() => {
+    if (phase !== 'deleting') return;
+    setCharCount(0);
+    setCurrentIndex((prev) => (prev + 1) % words.length);
+    setPhase('typing');
+  }, [phase, words.length]);
 
   return (
     <div
@@ -76,36 +73,35 @@ export default function RotatingBadge({
       aria-live="polite"
       aria-atomic="true"
     >
-      {/* Hidden measure container — renders all words offscreen to find widest */}
-      <div ref={measureRef} aria-hidden className="absolute opacity-0 pointer-events-none">
-        {words.map((word) => (
-          <span key={word} className="text-sm font-semibold tracking-wide uppercase whitespace-nowrap">
-            {word}
-          </span>
-        ))}
-      </div>
-
       <div className="relative group">
         {/* Soft glow */}
         <div className="absolute -inset-1.5 bg-gradient-to-r from-[#6366F1]/20 to-[#6366F1]/10 rounded-xl opacity-20 group-hover:opacity-30 blur-md transition duration-500 -z-10" />
 
-        {/* Badge — fixed width based on widest word */}
+        {/* Badge */}
         <div className="relative px-4 py-2 bg-gradient-to-r from-[#6366F1]/15 to-[#4F46E5]/10 border border-[#818CF8]/20 rounded-xl overflow-hidden">
-          <div
-            className="h-6 flex items-center justify-center"
-            style={maxWidth ? { width: maxWidth } : undefined}
-          >
+          <div className="h-6 flex items-center">
+            {/* Invisible full word to reserve width — prevents layout shift */}
             <span
-              className="text-sm font-semibold tracking-wide uppercase text-white whitespace-nowrap"
-              style={{
-                transform,
-                opacity,
-                transition: `transform ${phase === 'visible' ? ENTER_MS : EXIT_MS}ms ease-out, opacity ${phase === 'visible' ? ENTER_MS : EXIT_MS}ms ease-out`,
-                textShadow: '0 0 8px rgba(99, 102, 241, 0.3)',
-                willChange: 'transform, opacity',
-              }}
+              className="text-sm font-semibold tracking-wide uppercase whitespace-nowrap invisible"
+              style={{ textShadow: '0 0 8px rgba(99, 102, 241, 0.3)' }}
+              aria-hidden
             >
-              {words[currentIndex]}
+              {currentWord}
+            </span>
+            {/* Visible typed text overlaid at same position */}
+            <span
+              className="absolute left-4 text-sm font-semibold tracking-wide uppercase whitespace-nowrap text-[#C4B5FD]"
+            >
+              {currentWord.slice(0, charCount)}
+            </span>
+            {/* Blinking cursor positioned right after typed text */}
+            <span
+              className="absolute left-4 text-sm font-semibold tracking-wide uppercase whitespace-nowrap pointer-events-none"
+              aria-hidden
+              style={{ color: 'transparent' }}
+            >
+              {currentWord.slice(0, charCount)}
+              <span className="inline-block w-[2px] h-4 bg-white align-middle ml-px animate-blink" />
             </span>
           </div>
         </div>

@@ -3,17 +3,15 @@ import Footer from '@/components/Footer';
 import { PageBackground } from '@/components/layout/PageBackground';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { CurrentFocusSection } from '@/components/sections/CurrentFocusSection';
-import { MyJourneySection } from '@/components/sections/MyJourneySection';
+
 import { ArtGallerySection } from '@/components/sections/ArtGallerySection';
 import { BlogSection } from '@/components/sections/BlogSection';
-import { getPersonalInfo, getBlogs, getArt, getSkills, getAbout } from '@/lib/data';
+import { getPersonalInfo, getBlogs, getArt } from '@/lib/data';
 
 export default function Home() {
   const personal = getPersonalInfo();
   const blogs = getBlogs().slice(0, 5);
   const artPieces = getArt().slice(0, 3);
-  const skills = getSkills();
-  const about = getAbout();
 
   return (
     <PageBackground>
@@ -26,7 +24,6 @@ export default function Home() {
       {/* Main Content Area */}
       <div className="relative z-20 bg-[#0B0C14]">
         <CurrentFocusSection />
-        <MyJourneySection skills={skills} experience={about.experience} education={about.education} />
         <ArtGallerySection artPieces={artPieces} />
         <BlogSection blogs={blogs} />
       </div>
