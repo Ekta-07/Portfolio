@@ -3,7 +3,7 @@
 import { useState, memo, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
-import { Briefcase, GraduationCap, Wrench, Trophy } from 'lucide-react';
+import { Briefcase, GraduationCap, Wrench, Trophy, Code, Database, Microscope, FlaskConical, Monitor } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 import SpotlightCard from '@/components/SpotlightCard';
 import type { Skills, Experience, Education } from '@/lib/data';
@@ -81,70 +81,97 @@ const SkillsTab = memo(function SkillsTab({ skills }: { skills: Skills }) {
   );
 });
 
-const ExperienceTab = memo(function ExperienceTab({ experience }: { experience: Experience[] }) {
-  const [selected, setSelected] = useState(0);
-  const active = experience[selected];
+function getExperienceIcon(role: string) {
+  const r = role.toLowerCase();
+  if (r.includes('research')) return Microscope;
+  if (r.includes('data')) return Database;
+  if (r.includes('software') || r.includes('developer')) return Code;
+  if (r.includes('academic') || r.includes('scholar')) return GraduationCap;
+  if (r.includes('iot')) return Monitor;
+  return Briefcase;
+}
 
+const ExperienceTab = memo(function ExperienceTab({ experience }: { experience: Experience[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-5 items-start">
-      {/* Left sidebar — scrollable if many entries */}
-      <div className="space-y-2 md:max-h-[400px] md:overflow-y-auto md:pr-2 scrollbar-thin">
+    <div className="relative">
+      {/* Center vertical line — hidden on mobile */}
+      <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[#727DA1]/30 -translate-x-1/2" />
+
+      <div className="space-y-12 md:space-y-16">
         {experience.map((exp, i) => {
-          const isCurrent = exp.period.includes('Present');
-          const isSelected = i === selected;
+          const isLeft = i % 2 === 0;
+          const Icon = getExperienceIcon(exp.role);
+
           return (
-            <button
-              key={i}
-              onClick={() => setSelected(i)}
-              className={`w-full text-left px-3 py-3 rounded-lg border transition-all ${
-                isSelected
-                  ? 'bg-[#171926] border-[#6366F1]/40'
-                  : 'bg-transparent border-transparent hover:bg-[#171926]/50'
-              }`}
-            >
-              <div className="flex items-center gap-2 mb-0.5">
-                {isCurrent ? (
-                  <span className="px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-[#6366F1]/20 text-[#818CF8] rounded border border-[#6366F1]/30">
-                    Current
-                  </span>
-                ) : exp.type ? (
-                  <span className="px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-[#939DB8] bg-[#1A1826] rounded border border-[#727DA1]/20">
-                    {exp.type}
-                  </span>
-                ) : null}
-                <span className="text-[11px] text-[#939DB8]">{exp.period.split(' - ')[0]}</span>
+            <FadeIn key={i} direction="up" delay={0.1 + i * 0.05}>
+              <div className="relative flex flex-col md:flex-row md:items-start">
+
+                {/* ── Mobile layout (stacked) ── */}
+                <div className="md:hidden flex gap-4 items-start">
+                  {/* Icon circle */}
+                  <div className="shrink-0 w-12 h-12 rounded-full border-2 border-[#727DA1]/40 bg-[#0B0C14] flex items-center justify-center z-10">
+                    <Icon className="w-5 h-5 text-[#818CF8]" />
+                  </div>
+                  {/* Card */}
+                  <div className="flex-1 p-5 rounded-xl bg-[#171926] border border-[#727DA1]/15">
+                    <h4 className="text-base font-semibold text-white leading-snug">{exp.role}</h4>
+                    <p className="text-sm text-[#C9D3EE]">{exp.company}</p>
+                    {exp.location && <p className="text-xs text-[#939DB8] mt-0.5">{exp.location}</p>}
+                    <p className="text-xs text-[#818CF8] font-medium mt-1">{exp.period}</p>
+                    <p className="text-sm text-[#939DB8] leading-relaxed mt-3">{exp.description}</p>
+                  </div>
+                </div>
+
+                {/* ── Desktop layout (alternating) ── */}
+                <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] md:gap-6 w-full items-start">
+
+                  {/* Left column */}
+                  <div className={`flex ${isLeft ? 'justify-end' : 'justify-end items-center'}`}>
+                    {isLeft ? (
+                      /* Card on left */
+                      <div className="relative max-w-md w-full p-5 rounded-xl bg-[#171926] border border-[#727DA1]/15">
+                        <h4 className="text-base font-semibold text-white leading-snug">{exp.role}</h4>
+                        <p className="text-sm text-[#C9D3EE]">{exp.company}</p>
+                        {exp.location && <p className="text-xs text-[#939DB8] mt-0.5">{exp.location}</p>}
+                        <p className="text-sm text-[#939DB8] leading-relaxed mt-3">{exp.description}</p>
+                        {/* Arrow pointing right */}
+                        <div className="absolute top-5 -right-2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-[#727DA1]/15" />
+                      </div>
+                    ) : (
+                      /* Date on left */
+                      <span className="text-sm text-[#939DB8] font-medium whitespace-nowrap mt-3">{exp.period}</span>
+                    )}
+                  </div>
+
+                  {/* Center icon */}
+                  <div className="shrink-0 w-12 h-12 rounded-full border-2 border-[#727DA1]/40 bg-[#0B0C14] flex items-center justify-center z-10">
+                    <Icon className="w-5 h-5 text-[#818CF8]" />
+                  </div>
+
+                  {/* Right column */}
+                  <div className={`flex ${isLeft ? 'items-center' : 'justify-start'}`}>
+                    {isLeft ? (
+                      /* Date on right */
+                      <span className="text-sm text-[#939DB8] font-medium whitespace-nowrap mt-3">{exp.period}</span>
+                    ) : (
+                      /* Card on right */
+                      <div className="relative max-w-md w-full p-5 rounded-xl bg-[#171926] border border-[#727DA1]/15">
+                        <h4 className="text-base font-semibold text-white leading-snug">{exp.role}</h4>
+                        <p className="text-sm text-[#C9D3EE]">{exp.company}</p>
+                        {exp.location && <p className="text-xs text-[#939DB8] mt-0.5">{exp.location}</p>}
+                        <p className="text-sm text-[#939DB8] leading-relaxed mt-3">{exp.description}</p>
+                        {/* Arrow pointing left */}
+                        <div className="absolute top-5 -left-2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px] border-r-[#727DA1]/15" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
               </div>
-              <h4 className="text-sm font-medium text-white leading-snug">{exp.role}</h4>
-              <p className="text-xs text-[#939DB8]">{exp.company}</p>
-            </button>
+            </FadeIn>
           );
         })}
       </div>
-
-      {/* Right detail panel */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={selected}
-          initial={{ opacity: 0, x: 10 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -10 }}
-          transition={{ duration: 0.2 }}
-          className="p-6 rounded-xl bg-[#171926] border border-[#727DA1]/15"
-        >
-          <div className="flex items-start gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-[#6366F1]/15 flex items-center justify-center shrink-0 mt-0.5">
-              <Briefcase className="w-5 h-5 text-[#818CF8]" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-white leading-snug">{active.role}</h4>
-              <p className="text-sm text-[#C9D3EE]">{active.company}{active.type && ` · ${active.type}`}</p>
-              <p className="text-xs text-[#818CF8] mt-0.5">{active.period}</p>
-              {active.location && <p className="text-xs text-[#939DB8] mt-0.5">{active.location}</p>}
-            </div>
-          </div>
-          <p className="text-sm text-[#939DB8] leading-relaxed">{active.description}</p>
-        </motion.div>
-      </AnimatePresence>
     </div>
   );
 });

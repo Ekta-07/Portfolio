@@ -2,42 +2,9 @@ import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import FlowingGradient from '@/components/FlowingGradient';
-import SpotlightCard from '@/components/SpotlightCard';
-import { getAbout, getPersonalInfo } from '@/lib/data';
-import type { Education } from '@/lib/data';
-import { Briefcase, GraduationCap } from 'lucide-react';
-import SkillRadar from '@/components/SkillRadar';
-
-function InstitutionLogo({ edu }: { edu: Education }) {
-    if (edu.logo) {
-        const isSvg = edu.logo.endsWith('.svg');
-        return (
-            <div className={`w-16 h-16 rounded-full flex items-center justify-center p-2.5 ${isSvg ? 'bg-transparent' : 'bg-white/90'}`}>
-                <Image
-                    src={edu.logo}
-                    alt={edu.institution}
-                    width={64}
-                    height={64}
-                    className={`object-contain ${isSvg ? 'brightness-0 invert' : ''}`}
-                />
-            </div>
-        );
-    }
-    const initials = edu.institution
-        .split(/[\s()]+/)
-        .filter(w => w.length > 2 && w[0] === w[0].toUpperCase())
-        .map(w => w[0])
-        .slice(0, 3)
-        .join('');
-    return (
-        <div className="w-14 h-14 rounded-full bg-[#6366F1]/15 border border-[#6366F1]/25 flex items-center justify-center">
-            <span className="text-sm font-bold text-[#818CF8] tracking-wide">{initials}</span>
-        </div>
-    );
-}
+import { getPersonalInfo } from '@/lib/data';
 
 export default function AboutPage() {
-    const about = getAbout();
     const personal = getPersonalInfo();
 
     return (
@@ -116,73 +83,6 @@ export default function AboutPage() {
                             </svg>
                             <span className="text-sm font-medium text-[#C9D3EE] group-hover:text-white transition-colors">Download Resume</span>
                         </a>
-                    </section>
-
-                    {/* Divider */}
-                    <div className="h-px bg-gradient-to-r from-transparent via-[#727DA1]/20 to-transparent mb-16" />
-
-                    {/* Education Section */}
-                    <section className="mb-16">
-                        <div className="mb-6">
-                            <h2 className="text-2xl font-bold mb-1">
-                                <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Education</span>
-                            </h2>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            {about.education.map((edu, i) => (
-                                <SpotlightCard key={i} className="bg-[#171926] rounded-xl border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#6366F1]/10 text-center p-5">
-                                    <div className="flex justify-center items-center h-20 mb-3">
-                                        <InstitutionLogo edu={edu} />
-                                    </div>
-                                    <h4 className="text-xs font-semibold text-white uppercase tracking-wide mb-1">{edu.degree}</h4>
-                                    <p className="text-xs text-[#C9D3EE] leading-snug">{edu.institution}</p>
-                                    <p className="text-[11px] text-[#939DB8] mt-1">{edu.field}</p>
-                                    <p className="text-xs text-[#818CF8] font-medium mt-2">{edu.period}</p>
-                                </SpotlightCard>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* Experience Section */}
-                    <section className="mb-16">
-                        <div className="mb-6">
-                            <h2 className="text-2xl font-bold mb-1">
-                                <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Experience</span>
-                            </h2>
-                        </div>
-                        <div className="space-y-4">
-                            {about.experience.map((exp, i) => {
-                                const isCurrent = exp.period.includes('Present');
-                                return (
-                                    <div
-                                        key={i}
-                                        className={`p-5 rounded-xl border transition-all ${isCurrent ? 'bg-[#171926] border-[#6366F1]/20' : 'bg-[#171926]/50 border-[#727DA1]/10 hover:border-[#727DA1]/20'}`}
-                                    >
-                                        <div className="flex items-start justify-between gap-4">
-                                            <div className="flex-1 min-w-0">
-                                                <div className="flex items-center gap-2 flex-wrap">
-                                                    <h4 className="text-sm font-semibold text-white">{exp.role}</h4>
-                                                    {isCurrent && (
-                                                        <span className="px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-[#6366F1]/20 text-[#818CF8] rounded border border-[#6366F1]/30">
-                                                            Current
-                                                        </span>
-                                                    )}
-                                                </div>
-                                                <p className="text-sm text-[#C9D3EE] mt-0.5">{exp.company}{exp.type && <span className="text-[#939DB8]"> · {exp.type}</span>}</p>
-                                            </div>
-                                            <p className="text-xs text-[#818CF8] font-medium flex-shrink-0 mt-0.5">{exp.period}</p>
-                                        </div>
-                                        {exp.location && <p className="text-[11px] text-[#727DA1] mt-1">{exp.location}</p>}
-                                        <p className="text-sm text-[#939DB8] leading-relaxed mt-3 pt-3 border-t border-[#727DA1]/10">{exp.description}</p>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </section>
-
-                    {/* Skill Architecture Section */}
-                    <section className="mb-16">
-                        <SkillRadar />
                     </section>
 
                 </div>

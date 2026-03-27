@@ -68,42 +68,38 @@ export default function RotatingBadge({
 
   return (
     <div
-      className="inline-flex items-center"
+      className="inline-flex items-center gap-3"
       role="status"
       aria-live="polite"
       aria-atomic="true"
     >
-      <div className="relative group">
-        {/* Soft glow */}
-        <div className="absolute -inset-1.5 bg-gradient-to-r from-[#6366F1]/20 to-[#6366F1]/10 rounded-xl opacity-20 group-hover:opacity-30 blur-md transition duration-500 -z-10" />
+      {/* Accent dash */}
+      <span className="w-5 h-[2px] bg-[#6366F1] rounded-full" aria-hidden />
 
-        {/* Badge */}
-        <div className="relative px-4 py-2 bg-gradient-to-r from-[#6366F1]/15 to-[#4F46E5]/10 border border-[#818CF8]/20 rounded-xl overflow-hidden">
-          <div className="h-6 flex items-center">
-            {/* Invisible full word to reserve width — prevents layout shift */}
-            <span
-              className="text-sm font-semibold tracking-wide uppercase whitespace-nowrap invisible"
-              style={{ textShadow: '0 0 8px rgba(99, 102, 241, 0.3)' }}
-              aria-hidden
-            >
-              {currentWord}
-            </span>
-            {/* Visible typed text overlaid at same position */}
-            <span
-              className="absolute left-4 text-sm font-semibold tracking-wide uppercase whitespace-nowrap text-[#C4B5FD]"
-            >
-              {currentWord.slice(0, charCount)}
-            </span>
-            {/* Blinking cursor positioned right after typed text */}
-            <span
-              className="absolute left-4 text-sm font-semibold tracking-wide uppercase whitespace-nowrap pointer-events-none"
-              aria-hidden
-              style={{ color: 'transparent' }}
-            >
-              {currentWord.slice(0, charCount)}
-              <span className="inline-block w-[2px] h-4 bg-white align-middle ml-px animate-blink" />
-            </span>
-          </div>
+      <div className="relative">
+        <div className="h-6 flex items-center">
+          {/* Invisible full word to reserve width — prevents layout shift */}
+          <span
+            className="text-sm font-medium tracking-[0.2em] uppercase whitespace-nowrap invisible"
+            aria-hidden
+          >
+            {currentWord}
+          </span>
+          {/* Visible typed text overlaid at same position */}
+          <span
+            className="absolute left-0 text-sm font-medium tracking-[0.2em] uppercase whitespace-nowrap text-[#818CF8]"
+          >
+            {currentWord.slice(0, charCount)}
+          </span>
+          {/* Blinking cursor positioned right after typed text */}
+          <span
+            className="absolute left-0 text-sm font-medium tracking-[0.2em] uppercase whitespace-nowrap pointer-events-none"
+            aria-hidden
+            style={{ color: 'transparent' }}
+          >
+            {currentWord.slice(0, charCount)}
+            <span className="inline-block w-[2px] h-4 bg-[#6366F1] align-middle ml-0.5 animate-blink" />
+          </span>
         </div>
       </div>
     </div>

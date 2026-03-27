@@ -1,14 +1,66 @@
+import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
 import FadeIn from '@/components/FadeIn';
 import SpotlightCard from '@/components/SpotlightCard';
 import FlowingGradient from '@/components/FlowingGradient';
-import { getProjects, getResearch } from '@/lib/data';
+import SkillRadar from '@/components/SkillRadar';
+import { getProjects, getResearch, getAbout, getSkills } from '@/lib/data';
+import type { Education } from '@/lib/data';
+import { Briefcase, GraduationCap, Database, Microscope, Code, Monitor } from 'lucide-react';
+
+function getExperienceIcon(role: string) {
+    const r = role.toLowerCase();
+    if (r.includes('research')) return Microscope;
+    if (r.includes('data')) return Database;
+    if (r.includes('software') || r.includes('developer')) return Code;
+    if (r.includes('academic') || r.includes('scholar')) return GraduationCap;
+    if (r.includes('iot')) return Monitor;
+    return Briefcase;
+}
+
+function InstitutionLogo({ edu }: { edu: Education }) {
+    if (edu.logo) {
+        const isSvg = edu.logo.endsWith('.svg');
+        return (
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center p-2.5 ${isSvg ? 'bg-transparent' : 'bg-white/90'}`}>
+                <Image
+                    src={edu.logo}
+                    alt={edu.institution}
+                    width={64}
+                    height={64}
+                    className={`object-contain ${isSvg ? 'brightness-0 invert' : ''}`}
+                />
+            </div>
+        );
+    }
+    const initials = edu.institution
+        .split(/[\s()]+/)
+        .filter(w => w.length > 2 && w[0] === w[0].toUpperCase())
+        .map(w => w[0])
+        .slice(0, 3)
+        .join('');
+    return (
+        <div className="w-14 h-14 rounded-full bg-[#6366F1]/15 border border-[#6366F1]/25 flex items-center justify-center">
+            <span className="text-sm font-bold text-[#818CF8] tracking-wide">{initials}</span>
+        </div>
+    );
+}
 
 export default function WorkPage() {
     const projects = getProjects().filter(p => p.featured).slice(0, 3);
     const research = getResearch();
+    const about = getAbout();
+    const skills = getSkills();
+
+    const skillGroups = [
+        { title: 'Languages', items: skills.languages },
+        { title: 'Research & ML', items: skills.researchAndML },
+        { title: 'Data & IoT', items: skills.dataAndIoT },
+        { title: 'Web', items: skills.web },
+        { title: 'Tools', items: skills.tools },
+    ];
 
     return (
         <div className="min-h-screen bg-[#0B0C14] text-white relative overflow-hidden">
@@ -26,6 +78,157 @@ export default function WorkPage() {
                             </p>
                         </div>
                     </FadeIn>
+
+                    {/* Experience Timeline */}
+                    <section className="mb-20">
+                        <FadeIn direction="up">
+                            <h2 className="text-2xl font-bold mb-10">
+                                <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Experience</span>
+                            </h2>
+                        </FadeIn>
+
+                        <div className="relative">
+                            {/* Center vertical line — hidden on mobile */}
+                            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[#727DA1]/30 -translate-x-1/2" />
+
+                            <div className="space-y-12 md:space-y-16">
+                                {about.experience.map((exp, i) => {
+                                    const isLeft = i % 2 === 0;
+                                    const Icon = getExperienceIcon(exp.role);
+
+                                    return (
+                                        <FadeIn key={i} direction="up" delay={0.1 + i * 0.05}>
+                                            <div className="relative flex flex-col md:flex-row md:items-start">
+
+                                                {/* Mobile layout */}
+                                                <div className="md:hidden flex gap-4 items-start">
+                                                    <div className="shrink-0 w-12 h-12 rounded-full border-2 border-[#727DA1]/40 bg-[#0B0C14] flex items-center justify-center z-10">
+                                                        <Icon className="w-5 h-5 text-[#818CF8]" />
+                                                    </div>
+                                                    <div className="flex-1 p-5 rounded-xl bg-[#171926] border border-[#727DA1]/15">
+                                                        <h4 className="text-base font-semibold text-white leading-snug">{exp.role}</h4>
+                                                        <p className="text-sm text-[#C9D3EE]">{exp.company}</p>
+                                                        {exp.location && <p className="text-xs text-[#939DB8] mt-0.5">{exp.location}</p>}
+                                                        <p className="text-xs text-[#818CF8] font-medium mt-1">{exp.period}</p>
+                                                        <p className="text-sm text-[#939DB8] leading-relaxed mt-3">{exp.description}</p>
+                                                    </div>
+                                                </div>
+
+                                                {/* Desktop alternating layout */}
+                                                <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] md:gap-6 w-full items-start">
+                                                    {/* Left column */}
+                                                    <div className={`flex ${isLeft ? 'justify-end' : 'justify-end items-center'}`}>
+                                                        {isLeft ? (
+                                                            <div className="relative max-w-md w-full p-5 rounded-xl bg-[#171926] border border-[#727DA1]/15">
+                                                                <h4 className="text-base font-semibold text-white leading-snug">{exp.role}</h4>
+                                                                <p className="text-sm text-[#C9D3EE]">{exp.company}</p>
+                                                                {exp.location && <p className="text-xs text-[#939DB8] mt-0.5">{exp.location}</p>}
+                                                                <p className="text-sm text-[#939DB8] leading-relaxed mt-3">{exp.description}</p>
+                                                                <div className="absolute top-5 -right-2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-8 border-l-[#727DA1]/15" />
+                                                            </div>
+                                                        ) : (
+                                                            <span className="text-sm text-[#939DB8] font-medium whitespace-nowrap mt-3">{exp.period}</span>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Center icon */}
+                                                    <div className="shrink-0 w-12 h-12 rounded-full border-2 border-[#727DA1]/40 bg-[#0B0C14] flex items-center justify-center z-10">
+                                                        <Icon className="w-5 h-5 text-[#818CF8]" />
+                                                    </div>
+
+                                                    {/* Right column */}
+                                                    <div className={`flex ${isLeft ? 'items-center' : 'justify-start'}`}>
+                                                        {isLeft ? (
+                                                            <span className="text-sm text-[#939DB8] font-medium whitespace-nowrap mt-3">{exp.period}</span>
+                                                        ) : (
+                                                            <div className="relative max-w-md w-full p-5 rounded-xl bg-[#171926] border border-[#727DA1]/15">
+                                                                <h4 className="text-base font-semibold text-white leading-snug">{exp.role}</h4>
+                                                                <p className="text-sm text-[#C9D3EE]">{exp.company}</p>
+                                                                {exp.location && <p className="text-xs text-[#939DB8] mt-0.5">{exp.location}</p>}
+                                                                <p className="text-sm text-[#939DB8] leading-relaxed mt-3">{exp.description}</p>
+                                                                <div className="absolute top-5 -left-2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-8 border-r-[#727DA1]/15" />
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </FadeIn>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Divider */}
+                    <div className="h-px bg-gradient-to-r from-transparent via-[#727DA1]/20 to-transparent mb-20" />
+
+                    {/* Education */}
+                    <section className="mb-20">
+                        <FadeIn direction="up">
+                            <h2 className="text-2xl font-bold mb-6">
+                                <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Education</span>
+                            </h2>
+                        </FadeIn>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                            {about.education.map((edu, i) => (
+                                <FadeIn key={i} direction="up" delay={i * 0.1} className="flex">
+                                    <SpotlightCard className="flex flex-col bg-[#171926] rounded-xl border border-[#727DA1]/15 hover:border-[#6366F1]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#6366F1]/10 text-center p-6 w-full">
+                                        <div className="flex justify-center items-center h-24 mb-4">
+                                            <InstitutionLogo edu={edu} />
+                                        </div>
+                                        <h4 className="text-base font-semibold text-white mb-1">{edu.degree}</h4>
+                                        <p className="text-sm text-[#C9D3EE] mb-0.5">{edu.institution}</p>
+                                        <p className="text-sm text-[#939DB8] mb-2 flex-1">{edu.field}</p>
+                                        <p className="text-xs text-[#818CF8] font-medium">{edu.period}</p>
+                                    </SpotlightCard>
+                                </FadeIn>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Divider */}
+                    <div className="h-px bg-gradient-to-r from-transparent via-[#727DA1]/20 to-transparent mb-20" />
+
+                    {/* Skills */}
+                    <section className="mb-20">
+                        <FadeIn direction="up">
+                            <h2 className="text-2xl font-bold mb-8">
+                                <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Skills</span>
+                            </h2>
+                        </FadeIn>
+
+                        {/* Radar */}
+                        <FadeIn direction="up" delay={0.1}>
+                            <div className="w-64 mx-auto">
+                                <SkillRadar />
+                            </div>
+                        </FadeIn>
+
+                        {/* Skill groups */}
+                        <FadeIn direction="up" delay={0.2}>
+                            <div className="space-y-5 mt-10">
+                                {skillGroups.map((group) => (
+                                    <div key={group.title} className="flex flex-col sm:flex-row sm:items-start gap-3">
+                                        <h4 className="text-xs font-medium text-[#818CF8] uppercase tracking-wider sm:w-32 shrink-0 pt-1.5">{group.title}</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {group.items.map((skill) => (
+                                                <span
+                                                    key={skill}
+                                                    className="px-3 py-1.5 text-sm text-[#C9D3EE] bg-[#171926] border border-[#727DA1]/20 rounded-lg hover:border-[#6366F1]/40 transition-colors"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </FadeIn>
+                    </section>
+
+                    {/* Divider */}
+                    <div className="h-px bg-gradient-to-r from-transparent via-[#727DA1]/20 to-transparent mb-20" />
 
                     {/* Featured Projects */}
                     <section className="mb-16">
@@ -85,7 +288,6 @@ export default function WorkPage() {
                                             </h4>
                                             <p className="text-[#939DB8] text-sm mb-4">{pub.authors}</p>
 
-                                            {/* DOI and View Publication Links */}
                                             <div className="flex items-center gap-3 pt-2">
                                                 {pub.doi && (
                                                     <a
