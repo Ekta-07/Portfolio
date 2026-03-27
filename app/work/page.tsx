@@ -200,7 +200,7 @@ export default function WorkPage() {
 
                         {/* Radar */}
                         <FadeIn direction="up" delay={0.1}>
-                            <div className="w-64 mx-auto">
+                            <div className="w-full max-w-md mx-auto">
                                 <SkillRadar />
                             </div>
                         </FadeIn>
