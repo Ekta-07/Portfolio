@@ -80,7 +80,7 @@ export function HeroSection({ personal }: HeroSectionProps) {
 
             {/* Socials Minimal */}
             <FadeIn direction="up" delay={0.6}>
-              <div className="flex gap-4 pt-4">
+              <div className="flex items-center gap-4 pt-4">
                 {[
                   {
                     name: 'GitHub',
@@ -113,6 +113,16 @@ export function HeroSection({ personal }: HeroSectionProps) {
                     {social.icon}
                   </a>
                 ))}
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="p-3 bg-[#1a1a1a] hover:bg-[#262626] rounded-full transition-colors border border-[#262626] text-white/70 hover:text-white"
+                  title="Download Resume"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </a>
               </div>
             </FadeIn>
           </div>
