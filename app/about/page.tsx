@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import FlowingGradient from '@/components/FlowingGradient';
 import { getPersonalInfo } from '@/lib/data';
+import { BookOpen, Headphones, Heart } from 'lucide-react';
 
 export default function AboutPage() {
     const personal = getPersonalInfo();
@@ -83,6 +84,84 @@ export default function AboutPage() {
                             </svg>
                             <span className="text-sm font-medium text-[#C9D3EE] group-hover:text-white transition-colors">Download Resume</span>
                         </a>
+                    </section>
+
+                    {/* A few small things about me */}
+                    <section className="mb-16">
+                        <h2 className="text-2xl font-bold mb-2">
+                            <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">A few small things about me</span>
+                        </h2>
+                        <p className="text-sm text-[#939DB8] mb-6">Little moments that bring me joy.</p>
+
+                        <div className="grid grid-cols-4 gap-4">
+                            <div className="flex flex-col items-center text-center py-8 px-4 rounded-2xl bg-[#171926] border border-[#727DA1]/10 hover:border-[#727DA1]/25 transition-colors">
+                                <svg className="w-10 h-10 mb-4" viewBox="0 0 48 48" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M8 20h24v14a6 6 0 01-6 6H14a6 6 0 01-6-6V20z" stroke="#D97706" strokeWidth="2" />
+                                    <path d="M32 24h4a4 4 0 010 8h-4" stroke="#D97706" strokeWidth="2" />
+                                    <path d="M18 14c0-2 1.5-4 1.5-4s1.5 2 1.5 4" stroke="#D97706" strokeWidth="1.5" />
+                                    <path d="M22 12c0-2 1.5-4 1.5-4s1.5 2 1.5 4" stroke="#D97706" strokeWidth="1.5" />
+                                    <path d="M20 8l0-2" stroke="#EF4444" strokeWidth="2" /><circle cx="20" cy="5" r="1.5" fill="#EF4444" />
+                                </svg>
+                                <p className="text-sm font-medium leading-snug text-[#C9D3EE]">Coffee + books calm me down</p>
+                            </div>
+                            <div className="flex flex-col items-center text-center py-8 px-4 rounded-2xl bg-[#171926] border border-[#727DA1]/10 hover:border-[#727DA1]/25 transition-colors">
+                                <svg className="w-10 h-10 mb-4" viewBox="0 0 48 48" fill="none" stroke="#34D399" strokeWidth="0.8">
+                                    <circle cx="24" cy="24" r="3" fill="#34D399" stroke="none" />
+                                    <circle cx="24" cy="24" r="6" />
+                                    {[0,45,90,135,180,225,270,315].map(a => <ellipse key={`i${a}`} cx="24" cy="17" rx="2.5" ry="5" transform={`rotate(${a} 24 24)`} strokeWidth="1" />)}
+                                    {[0,45,90,135,180,225,270,315].map(a => <ellipse key={`o${a}`} cx="24" cy="12" rx="3" ry="8" transform={`rotate(${a} 24 24)`} />)}
+                                    {[22.5,67.5,112.5,157.5,202.5,247.5,292.5,337.5].map(a => <ellipse key={`l${a}`} cx="24" cy="9" rx="2" ry="5.5" transform={`rotate(${a} 24 24)`} />)}
+                                </svg>
+                                <p className="text-sm font-medium leading-snug text-[#C9D3EE]">I design mandalas to unwind</p>
+                            </div>
+                            <div className="flex flex-col items-center text-center py-8 px-4 rounded-2xl bg-[#171926] border border-[#727DA1]/10 hover:border-[#727DA1]/25 transition-colors">
+                                <svg className="w-10 h-10 mb-4" viewBox="0 0 48 48" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                    <rect x="8" y="6" width="22" height="36" rx="3" stroke="#60A5FA" strokeWidth="2" />
+                                    <path d="M14 16h10M14 22h10M14 28h6" stroke="#60A5FA" strokeWidth="2" />
+                                    <circle cx="34" cy="30" r="8" stroke="#818CF8" strokeWidth="2" fill="#171926" />
+                                    <path d="M31 30l2 2 4-4" stroke="#818CF8" strokeWidth="2" />
+                                </svg>
+                                <p className="text-sm font-medium leading-snug text-[#C9D3EE]">I love organizing things</p>
+                            </div>
+                            <div className="flex flex-col items-center text-center py-8 px-4 rounded-2xl bg-[#171926] border border-[#727DA1]/10 hover:border-[#727DA1]/25 transition-colors">
+                                <svg className="w-10 h-10 mb-4" viewBox="0 0 48 48" fill="none" stroke="#FB923C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="24" cy="10" r="4" />
+                                    <path d="M18 22l6 4 6-4" />
+                                    <path d="M24 26v8" />
+                                    <path d="M20 40l4-6 4 6" />
+                                    <path d="M16 18l4 4" />
+                                    <path d="M32 18l-4 4" />
+                                </svg>
+                                <p className="text-sm font-medium leading-snug text-[#C9D3EE]">Zumba recharges my mind</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Currently */}
+                    <section className="mb-16">
+                        <h2 className="text-2xl font-bold mb-2">
+                            <span className="bg-gradient-to-r from-[#C9D3EE] to-[#818CF8] bg-clip-text text-transparent">Currently</span>
+                        </h2>
+                        <p className="text-sm text-[#939DB8] mb-6">What I&apos;m into right now.</p>
+
+                        <div className="space-y-4">
+                            {[
+                                { icon: BookOpen, label: 'Reading', value: 'Let Them Theory, Mel Robbins', color: 'text-emerald-400', border: 'border-emerald-500/20' },
+                                { icon: Headphones, label: 'Listening', value: 'A Thousand Years, Christina Perri', color: 'text-violet-400', border: 'border-violet-500/20' },
+                                { icon: Heart, label: 'Enjoying', value: 'Quiet Afternoons with my New Born', color: 'text-rose-400', border: 'border-rose-500/20' },
+                            ].map((item) => {
+                                const Icon = item.icon;
+                                return (
+                                    <div key={item.label} className={`flex items-center gap-4 p-4 rounded-xl bg-[#171926]/50 border-l-2 ${item.border} hover:scale-[1.02] hover:bg-[#171926] transition-all duration-200`}>
+                                        <Icon className={`w-5 h-5 ${item.color} flex-shrink-0`} strokeWidth={1.5} />
+                                        <div>
+                                            <p className="text-xs uppercase tracking-wider text-[#939DB8] mb-0.5">{item.label}</p>
+                                            <p className="text-sm text-[#C9D3EE]">{item.value}</p>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </section>
 
                 </div>
