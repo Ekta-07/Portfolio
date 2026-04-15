@@ -80,20 +80,20 @@ export default function RotatingBadge({
         <div className="h-6 flex items-center">
           {/* Invisible full word to reserve width — prevents layout shift */}
           <span
-            className="text-sm font-medium tracking-[0.2em] uppercase whitespace-nowrap invisible"
+            className="font-medium tracking-[0.2em] text-[0.96rem] uppercase whitespace-nowrap invisible"
             aria-hidden
           >
             {currentWord}
           </span>
           {/* Visible typed text overlaid at same position */}
           <span
-            className="absolute left-0 text-sm font-medium tracking-[0.2em] uppercase whitespace-nowrap text-[#818CF8]"
+            className="absolute left-0 font-medium tracking-[0.2em] text-[0.96rem] uppercase whitespace-nowrap text-[#818CF8]"
           >
             {currentWord.slice(0, charCount)}
           </span>
           {/* Blinking cursor positioned right after typed text */}
           <span
-            className="absolute left-0 text-sm font-medium tracking-[0.2em] uppercase whitespace-nowrap pointer-events-none"
+            className="absolute left-0 font-medium tracking-[0.2em] text-[0.96rem] uppercase whitespace-nowrap pointer-events-none"
             aria-hidden
             style={{ color: 'transparent' }}
           >

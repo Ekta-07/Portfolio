@@ -18,7 +18,7 @@ interface PageBackgroundProps {
  */
 export function PageBackground({ children }: PageBackgroundProps) {
   return (
-    <div className="min-h-screen bg-[#0B0C14] text-[#C9D3EE] relative w-full">
+    <div className="min-h-screen bg-[#0B0C14] text-[#C9D3EE] relative w-full overflow-x-hidden">
       {/* Fixed Background Layer - Behind all content */}
       <div className="fixed inset-0 z-0 w-full h-screen overflow-hidden pointer-events-none">
         {/* Base gradient */}

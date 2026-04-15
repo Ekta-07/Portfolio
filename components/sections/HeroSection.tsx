@@ -36,7 +36,7 @@ export function HeroSection({ personal }: HeroSectionProps) {
           <div className="space-y-4 text-left">
             <FadeIn direction="up" delay={0.1}>
               <RotatingBadge
-                words={['Research', 'Data Engineer', 'Creative Soul']}
+                words={['Researcher', 'Data Engineer', 'Creative Soul']}
                 duration={3500}
               />
             </FadeIn>
@@ -113,16 +113,6 @@ export function HeroSection({ personal }: HeroSectionProps) {
                     {social.icon}
                   </a>
                 ))}
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="p-3 bg-[#1a1a1a] hover:bg-[#262626] rounded-full transition-colors border border-[#262626] text-white/70 hover:text-white"
-                  title="Download Resume"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                </a>
               </div>
             </FadeIn>
           </div>

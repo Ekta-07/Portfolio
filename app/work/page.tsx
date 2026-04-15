@@ -76,6 +76,16 @@ export default function WorkPage() {
                             <p className="text-lg text-[#939DB8] max-w-2xl mx-auto">
                                 From research to production — projects I've built and academic contributions
                             </p>
+                            <a
+                                href="/resume.pdf"
+                                download
+                                className="group inline-flex items-center gap-3 mt-6 px-5 py-3 rounded-xl border border-[#727DA1]/15 bg-[#171926]/50 hover:border-[#6366F1]/30 hover:bg-[#171926] transition-all"
+                            >
+                                <svg className="w-4 h-4 text-[#818CF8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                <span className="text-sm font-medium text-[#C9D3EE] group-hover:text-white transition-colors">Download Resume</span>
+                            </a>
                         </div>
                     </FadeIn>
 
